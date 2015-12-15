@@ -8,10 +8,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
+<template id="quizTemplate">
+    <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
+</template>
+<div id="container">
+    <div class="point" data-x="0" data-y="0">
+        <p class="titleText">Title</p>
+        <div class="pointContent">
+            <button class="startMemory">Start</button>
+            <div id="memoryContainer">
+            </div>
+        </div>
+    </div>
 
 
 
+</div>
 <footer>
     <div class="flex-container">
         <a href="#"><div class="flex-item" id="icon1">App 1</div></a>
@@ -19,7 +31,6 @@
         <a href="#"><div class="flex-item" id="icon3">App 3</div></a>
     </div>
 </footer>
-</div>
 <script src="javascript/build.js"></script>
 </body>
 </html>

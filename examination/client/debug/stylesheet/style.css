@@ -1,6 +1,9 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
 }
 
 html {
@@ -15,7 +18,7 @@ html {
 
 body {
     margin: 0 0 100px; /* bottom = footer height */
-    padding: 25px;
+    padding: 0;
 }
 
 footer {
@@ -26,6 +29,14 @@ footer {
     height: 80px;
     width: 100%;
     overflow:hidden;
+}
+
+img {
+
+    width: 65px;
+}
+.removed {
+    visibility: hidden;
 }
 
 .flex-container {
@@ -50,7 +61,7 @@ footer {
 }
 
 #icon1 {
-    background: red; /* For browsers that do not support gradients */
+    background: orange; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(orangered, yellow); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(orangered, yellow); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(orangered, yellow); /* For Firefox 3.6 to 15 */
@@ -66,9 +77,88 @@ footer {
 }
 
 #icon3 {
-    background: red; /* For browsers that do not support gradients */
+    background: blue; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(darkblue, dodgerblue); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(darkblue, dodgerblue); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(darkblue, dodgerblue); /* For Firefox 3.6 to 15 */
     background: linear-gradient(darkblue, dodgerblue); /* Standard syntax */
+}
+
+.window{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 250px;
+    height: 250px;
+    cursor: default;
+}
+
+
+.point {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 265px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: move;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.25) 0%, rgba(0,0,0,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#000000',GradientType=0 );
+    text-indent: 10px;
+}
+
+.point:after {
+    position: absolute;
+    width: 265px;
+    height: 25px;
+    top: 150%; left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+ }
+
+.pointContent {
+    position: relative;
+    margin: 0;
+    width: 261px;
+    height: 350px;
+    background: rgba(255, 255, 255, 1);
+    cursor: default;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    text-indent: 0;
+}
+
+.titleText {
+    pointer-events: none;
+}
+
+.memoryPic {
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+.startMemory {
+    background: #0ec4bb;
+    background-image: -webkit-linear-gradient(top, #0ec4bb, #0b8f88);
+    background-image: -moz-linear-gradient(top, #0ec4bb, #0b8f88);
+    background-image: -ms-linear-gradient(top, #0ec4bb, #0b8f88);
+    background-image: -o-linear-gradient(top, #0ec4bb, #0b8f88);
+    background-image: linear-gradient(to bottom, #0ec4bb, #0b8f88);
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.startMemory:hover {
+    background: #5bcfc9;
+    cursor: pointer;
 }
