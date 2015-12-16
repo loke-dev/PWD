@@ -6,6 +6,7 @@
     <title>Examination 3</title>
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <template id="quizTemplate">
@@ -13,9 +14,9 @@
 </template>
 <div id="container">
     <div class="point" data-x="0" data-y="0">
-        <p class="titleText">Title</p>
+        <i class="material-icons md-18">view_module</i><p class="titleText">Title</p>
         <div class="pointContent">
-            <button class="startMemory">Start</button>
+            <button class="startMemory"><i class="material-icons md-36">play_arrow</i></button>
             <div id="memoryContainer">
             </div>
         </div>
@@ -26,9 +27,11 @@
 </div>
 <footer>
     <div class="flex-container">
-        <a href="#"><div class="flex-item" id="icon1">App 1</div></a>
-        <a href="#"><div class="flex-item" id="icon2">App 2</div></a>
-        <a href="#"><div class="flex-item" id="icon3">App 3</div></a>
+        <a href="#"><div class="flex-item" id="icon1"><i class="material-icons md-48">view_module</i></div></a>
+        <a href="#"><div class="flex-item" id="icon2"><i class="material-icons md-48">accessible</i></div></a>
+        <a href="#"><div class="flex-item" id="icon3"><i class="material-icons md-48">build</i></div></a>
+        <a href="#"><div class="flex-item" id="icon4"><i class="material-icons md-48">android</i></div></a>
+        <a href="#"><div class="flex-item" id="icon5"><i class="material-icons md-48">star_rate</i></div></a>
     </div>
 </footer>
 <script src="javascript/build.js"></script>

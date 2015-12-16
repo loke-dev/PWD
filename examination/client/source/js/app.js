@@ -3,8 +3,6 @@
 var newWindow = require("./window");
 var Memory = require("./Memory");
 
-
-
 newWindow.newWindow();
 
 var buttonStart = document.querySelector(".startMemory");

@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Code used and modified from this source "http://codepen.io/thebabydino/pen/Afams".
+ */
 function newWindow() {
     var point = document.querySelector(".point");
     var p1 = {
