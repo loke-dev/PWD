@@ -23,16 +23,10 @@ body {
 }
 
 footer {
-    background: -moz-linear-gradient(top,  rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.50) 100%);
-    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.50) 100%);
-    background: linear-gradient(to bottom,  rgba(0,0,0,0.10) 0%,rgba(0,0,0,0.50) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#000000',GradientType=0 );
     position: absolute;
     left: 25%;
     bottom: 0;
-    height: 80px;
     width: 50%;
-    overflow:hidden;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     display: table;
@@ -42,11 +36,19 @@ footer {
 }
 
 img {
-
     width: 65px;
 }
+
 .removed {
     visibility: hidden;
+}
+
+#iconPlatform {
+    background-image: url("/image/dock.png");
+    background-repeat: no-repeat;
+    height: 91px;
+    width: 100%;
+    min-width: 650px;
 }
 
 .flex-container {
@@ -57,22 +59,24 @@ img {
     -webkit-box-align: center;
     align-items: center;
     justify-content: center;
-    height: 80px;
+    height: 0;
+    margin-bottom: -35px;
 }
 
 .flex-item {
     border-radius: 15%;
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin: 0 10px 0 10px;
     padding: 5px;
     text-align: center;
     color: white;
     -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.25)));
-
+    transition-duration: 200ms;
 }
 
 .flex-item:hover {
+    margin-bottom: 50px;
     transition-duration: 200ms;
 }
 
@@ -128,8 +132,8 @@ img {
 
 .point {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 10%;
+    left: 10%;
     width: 265px;
     height: 25px;
     background: rgba(0, 0, 0, 0.5);
@@ -148,7 +152,8 @@ img {
     position: absolute;
     width: 265px;
     height: 25px;
-    top: 150%; left: 50%;
+    top: 150%;
+    left: 50%;
     transform: translateX(-50%);
     text-align: center;
  }

@@ -12,7 +12,7 @@
 <template id="quizTemplate">
     <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
 </template>
-<div id="container">
+<template id="windowTemplate">
     <div class="point" data-x="0" data-y="0">
         <i class="material-icons md-18">view_module</i><p class="titleText">Title</p>
         <div class="pointContent">
@@ -21,18 +21,21 @@
             </div>
         </div>
     </div>
+</template>
 
-
+<div id="container">
 
 </div>
 <footer>
+
     <div class="flex-container">
         <a href="#"><div class="flex-item" id="icon1"><i class="material-icons md-48">view_module</i></div></a>
         <a href="#"><div class="flex-item" id="icon2"><i class="material-icons md-48">accessible</i></div></a>
         <a href="#"><div class="flex-item" id="icon3"><i class="material-icons md-48">build</i></div></a>
         <a href="#"><div class="flex-item" id="icon4"><i class="material-icons md-48">android</i></div></a>
-        <a href="#"><div class="flex-item" id="icon5"><i class="material-icons md-48">star_rate</i></div></a>
+        <a href="#"><div class="flex-item" id="icon5"><i class="material-icons md-48">card_giftcard</i></div></a>
     </div>
+    <div id="iconPlatform"></div>
 </footer>
 <script src="javascript/build.js"></script>
 </body>
