@@ -2,13 +2,18 @@
 
 var newWindow = require("./window");
 var Memory = require("./Memory");
+var TaskBar = require("./taskbar");
 
-newWindow.newWindow();
+var Menu = new TaskBar();
 
-var buttonStart = document.querySelector(".startMemory");
+Menu.dockBar();
+
+var buttonStart = document.querySelector("#memoryButton");
 
 buttonStart.addEventListener("click", function(event) {
     event.preventDefault();
+    newWindow.genWindow();
+    newWindow.newWindow();
     var game = new Memory(4, 4);
     game.startGame();
 }, false);

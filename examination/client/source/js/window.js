@@ -56,6 +56,16 @@ function newWindow() {
 
 }
 
+
+function genWindow() {
+    var container = document.querySelector("#Container");
+    var template = document.querySelector("#windowTemplate");
+    var a = document.importNode(template, true);
+    container.appendChild(a);
+    console.log("Generating a new window");
+}
+
 module.exports = {
-    newWindow: newWindow
+    newWindow: newWindow,
+    genWindow: genWindow
 };
