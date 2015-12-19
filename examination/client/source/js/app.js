@@ -5,15 +5,28 @@ var Memory = require("./Memory");
 var TaskBar = require("./taskbar");
 
 var Menu = new TaskBar();
-
 Menu.dockBar();
 
-var buttonStart = document.querySelector("#memoryButton");
-
-buttonStart.addEventListener("click", function(event) {
+var dockClearAll = document.querySelector("#clearAllButton");
+dockClearAll.addEventListener("click", function(event) {
     event.preventDefault();
-    newWindow.genWindow();
-    newWindow.newWindow();
-    var game = new Memory(4, 4);
-    game.startGame();
+    var Window = new newWindow();
+    Window.clearAll();
 }, false);
+
+
+var dockMemory = document.querySelector("#memoryButton");
+
+dockMemory.addEventListener("click", function(event) {
+    event.preventDefault();
+    var Window = new newWindow();
+    Window.genWindow();
+    Window.newWindow();
+    var newMemory = document.querySelector(".startMemory");
+    newMemory.addEventListener("click", function() {
+        var game = new Memory(4, 4);
+        game.clear();
+        game.startGame();
+    }, false);
+}, false);
+

@@ -3,6 +3,9 @@
 var TaskBar = function() {
 };
 
+/**
+ *
+ */
 TaskBar.prototype.dockBar = function() {
     function addPrevClass (e) {
         var target = e.target;

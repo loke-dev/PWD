@@ -1,9 +1,13 @@
 "use strict";
 
 /**
- * Code used and modified from this source "http://codepen.io/thebabydino/pen/Afams".
+ * Code based of this source "http://codepen.io/thebabydino/pen/Afams".
  */
-function newWindow() {
+var Window = function() {
+};
+
+
+Window.prototype.newWindow = function() {
     var point = document.querySelector(".point");
     var p1 = {
         x: parseInt(point.dataset.x, 10),
@@ -33,6 +37,7 @@ function newWindow() {
 
     window.addEventListener("mousedown", function(e) {
         var t = e.target;
+        console.log(t);
 
         if (t === point) {
             p0 = {x: e.clientX, y: e.clientY};
@@ -54,18 +59,23 @@ function newWindow() {
         window.removeEventListener("mousemove", drag, false);
     }, false);
 
-}
-
-
-function genWindow() {
-    var container = document.querySelector("#Container");
-    var template = document.querySelector("#windowTemplate");
-    var a = document.importNode(template, true);
-    container.appendChild(a);
-    console.log("Generating a new window");
-}
-
-module.exports = {
-    newWindow: newWindow,
-    genWindow: genWindow
 };
+
+
+Window.prototype.genWindow = function() {
+    var container = document.querySelector("#container");
+    var template = document.querySelector("#memoryWindow");
+    var a = document.importNode(template.content, true);
+    container.appendChild(a);
+};
+
+Window.prototype.clearAll = function() {
+    var el = document.querySelector("#container");
+    if (el) {
+        while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild);
+        }
+    }
+};
+
+module.exports = Window;

@@ -24,9 +24,7 @@ body {
 
 footer {
     position: absolute;
-    /*left: 25%;*/
     bottom: 0;
-    /*width: 50%;*/
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     display: table;
@@ -41,47 +39,6 @@ img {
 
 .removed {
     visibility: hidden;
-}
-
-#icon1 {
-    background: linear-gradient(orangered, yellow);
-}
-
-#icon1:hover {
-
-    background: linear-gradient(orangered, orangered);
-}
-
-#icon2 {
-    background: linear-gradient(darkred, indianred);
-}
-
-#icon2:hover {
-    background: darkred;
-}
-
-#icon3 {
-    background: linear-gradient(darkblue, dodgerblue);
-}
-
-#icon3:hover {
-    background: darkblue;
-}
-
-#icon4 {
-    background: linear-gradient(darkgreen, greenyellow);
-}
-
-#icon4:hover {
-    background: darkgreen;
-}
-
-#icon5 {
-    background: linear-gradient(#5e005e, #b100ff);
-}
-
-#icon5:hover {
-    background: #5e005e;
 }
 
 .window{
@@ -161,9 +118,10 @@ img {
     -moz-border-radius: 10px;
     border-radius: 10px;
     color: #ffffff;
-    padding: 0 20px 0 20px;
+    padding: 12px 12px 12px 12px;
     margin-top: 10px;
     margin-bottom: 10px;
+
 }
 
 .startMemory:hover {
@@ -190,9 +148,16 @@ img {
     pointer-events: none;
 }
 
+.smallIcon {
+    width: 20px;
+    float: left;
+    pointer-events: none;
+}
 
 
-/*Dock Bar*/
+
+/* Dock Bar */
+/* Based of https://dl.dropboxusercontent.com/u/1330446/demo/dock/dock.html */
 
 #dock-container {
     position: fixed;
@@ -212,10 +177,12 @@ img {
     width: 100%;
     height: 45px;
     z-index: -10;
-    background-color: #888;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#7b7b7b), to(#ccc));
-    background-image: -webkit-linear-gradient(top, #7b7b7b, #999);
-    background-image: -moz-linear-gradient(top, #7b7b7b, #999);
+
+    background: #f5f6f6;
+    background: -moz-linear-gradient(top,  #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%);
+    background: -webkit-linear-gradient(top,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%);
+    background: linear-gradient(to bottom,  #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 );
     opacity: 1;
     border-bottom: 2px #aaa solid;
     -webkit-transform-origin: 50% 100%;
@@ -244,9 +211,7 @@ img {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 4px 0 4px 0;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
+    border-radius: 7px;
 }
 #dock li:hover span {
     display: block;
@@ -264,12 +229,13 @@ img {
     -moz-transform-origin: 50% 100%;
     -o-transition: all 0.3s;
     -o-transform-origin: 50% 100%;
+    border-radius: 10px;
 }
 #dock li:hover img {
     -webkit-transform: scale(2);
     -moz-transform: scale(2);
     -o-transform: scale(2);
-    margin: 0 2em 0 2.45em;
+    margin: 0 2em 0;
 }
 
 #dock li:hover + li img,

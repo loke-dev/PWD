@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<template id="quizTemplate">
+<template id="memoryTemplate">
     <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
 </template>
-<template id="windowTemplate">
+<template id="memoryWindow">
     <div class="point" data-x="0" data-y="0">
-        <i class="material-icons md-18">view_module</i><p class="titleText">Title</p>
+        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Title</p>
         <div class="pointContent">
-            <button class="startMemory"><i class="material-icons md-36">play_arrow</i></button>
-            <div id="memoryContainer">
+            <button class="startMemory">Start Game</button>
+            <div class="memoryContainer">
             </div>
         </div>
     </div>
@@ -41,27 +41,20 @@
                 </li>
                 <li>
                     <span>test1</span>
-                    <a href="#"><img src="image/memory.png"/></a>
+                    <a href="#"><img src="image/template.png"/></a>
                 </li>
                 <li>
                     <span>test2</span>
-                    <a href="#"><img src="image/memory.png"/></a>
+                    <a href="#"><img src="image/template.png"/></a>
                 </li>
                 <li>
-                    <span>test3</span>
-                    <a href="#"><img src="image/memory.png"/></a>
+                    <span>Clear Desktop</span>
+                    <a href="#" id="clearAllButton"><img src="image/clear.png"/></a>
                 </li>
             </ul>
             <div class="base"></div>
         </div>
     </div>
-
-    <!--<a href="#"><div class="flex-item" id="icon1"><i class="material-icons md-48">view_module</i></div></a>-->
-    <!--<a href="#"><div class="flex-item" id="icon2"><i class="material-icons md-48">accessible</i></div></a>-->
-    <!--<a href="#"><div class="flex-item" id="icon3"><i class="material-icons md-48">build</i></div></a>-->
-    <!--<a href="#"><div class="flex-item" id="icon4"><i class="material-icons md-48">android</i></div></a>-->
-    <!--<a href="#"><div class="flex-item" id="icon5"><i class="material-icons md-48">card_giftcard</i></div></a>-->
-
 </footer>
 <script src="javascript/build.js"></script>
 </body>

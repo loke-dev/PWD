@@ -21,15 +21,19 @@ var Memory = function(rows, cols) {
  * Starting point of the game
  */
 Memory.prototype.startGame = function() {
-    this.clear();
     this.createArray();
     this.createBoard();
 };
 
+/**
+ * Clear the memory play area
+ */
 Memory.prototype.clear = function() {
-    var el = document.querySelector("#memoryContainer");
-    while (el.hasChildNodes()) {
-        el.removeChild(el.lastChild);
+    var el = document.querySelector(".memoryContainer");
+    if (el) {
+        while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild);
+        }
     }
 };
 
@@ -37,8 +41,8 @@ Memory.prototype.clear = function() {
  * Dynamically creates the board
  */
 Memory.prototype.createBoard = function() {
-    var container = document.querySelector("#memoryContainer");
-    var template = document.querySelectorAll("#quizTemplate")[0].content.firstElementChild;
+    var container = document.querySelector(".memoryContainer");
+    var template = document.querySelectorAll("#memoryTemplate")[0].content.firstElementChild;
     var a;
 
     this.arr.forEach(function(tile, index) {
@@ -70,11 +74,6 @@ Memory.prototype.createArray = function() {
 };
 
 Memory.prototype.turnBrick = function(tile, index, img) {
-
-    //console.log(tile);
-    //console.log(index);
-    //console.log(img);
-
     if (this.turn2) { return; }
 
     img.src = "image/" + tile + ".png";
