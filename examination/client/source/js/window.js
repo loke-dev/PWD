@@ -37,7 +37,6 @@ Window.prototype.newWindow = function() {
 
     window.addEventListener("mousedown", function(e) {
         var t = e.target;
-        console.log(t);
 
         if (t === point) {
             p0 = {x: e.clientX, y: e.clientY};
@@ -76,6 +75,16 @@ Window.prototype.clearAll = function() {
             el.removeChild(el.lastChild);
         }
     }
+};
+
+Window.prototype.popupOpen = function() {
+    document.getElementById("popup").style.display="block";
+    document.getElementById("overlay").style.display="block";
+};
+
+Window.prototype.popupClose = function() {
+    document.getElementById("popup").style.display="none";
+    document.getElementById("overlay").style.display="none";
 };
 
 module.exports = Window;

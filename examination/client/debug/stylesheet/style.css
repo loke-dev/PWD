@@ -245,3 +245,117 @@ img {
     -o-transform: scale(1.4);
     margin: 0 1.4em 10px;
 }
+
+
+
+
+/* Overlay for popup */
+
+.overlay {
+    background:rgba(0,0,0,0.8);
+    opacity:0.8;
+    filter:alpha(opacity=80);
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:100;
+    animation: fade 1s ease 1 forwards;
+}
+
+/* Popup */
+.popup{
+    background:white;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:101;
+    width:500px;
+    height:200px;
+    margin:auto;
+    border-radius: 10px;
+    border-top: 1px solid white;
+    animation: fade 1s ease 1 forwards;
+}
+
+.popup .popup-inner{
+    position:relative;
+    padding:1em;
+}
+
+.popup .popup-inner input.s3-btn-close{
+    position:absolute;
+    top:-0.5em;
+    right:-0.5em;
+    background:black;
+    border:solid 2px white;
+    color:white;
+    cursor:pointer;
+    border-radius:24px;
+    outline:none;
+    padding: 4px 7px 4px 7px;
+}
+
+input.s3-btn{
+    background:#f1f1f1;
+    border:none;
+    width:200px;
+    height:50px;
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    margin:auto;
+}
+
+.s3-center{
+    text-align:center;
+}
+
+/* Popup content */
+
+.confirm h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1.5rem 1rem 0.5rem;
+}
+.confirm p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 2rem 4.5rem;
+}
+.confirm button {
+    background: transparent;
+    border: none;
+    color: #1678E5;
+    height: 3rem;
+    font-size: 1rem;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+.confirm button:nth-of-type(1) {
+    border-top: 1px solid #B4B4B4;
+    border-right: 1px solid #B4B4B4;
+    left: 0;
+    border-radius: 0 0 0 10px;
+}
+.confirm button:nth-of-type(2) {
+    border-top: 1px solid #B4B4B4;
+    right: 0;
+    border-radius: 0 0 10px 0;
+}
+.confirm button:focus,
+.confirm button:hover {
+    font-weight: bold;
+    background: #EFEFEF;
+}
+.confirm button:active {
+    background: #D6D6D6;
+}
