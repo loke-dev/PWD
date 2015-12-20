@@ -78,13 +78,13 @@ Window.prototype.clearAll = function() {
 };
 
 Window.prototype.popupOpen = function() {
-    document.getElementById("popup").style.display="block";
-    document.getElementById("overlay").style.display="block";
+    document.querySelector("#popup").style.display="block";
+    document.querySelector("#overlay").style.display="block";
 };
 
 Window.prototype.popupClose = function() {
-    document.getElementById("popup").style.display="none";
-    document.getElementById("overlay").style.display="none";
+    document.querySelector("#popup").style.display="none";
+    document.querySelector("#overlay").style.display="none";
 };
 
 module.exports = Window;
