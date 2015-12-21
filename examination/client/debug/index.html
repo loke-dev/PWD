@@ -14,10 +14,26 @@
 </template>
 <template id="memoryWindow">
     <div class="point" data-x="0" data-y="0">
-        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Title</p>
+        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Memory</p>
         <div class="pointContent">
             <button class="startMemory">Start Game</button>
             <div class="memoryContainer">
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="chatWindow">
+    <div class="point" data-x="0" data-y="0">
+        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
+        <div class="pointContent">
+            <div class="chatContainer">
+                <div class="textContainer">
+                    <ul class="textArea">
+                    </ul>
+                </div>
+                <input title="Chat" type="text" class="chatBox" name="chatBox">
+                <button class="sendChat">Send</button>
             </div>
         </div>
     </div>
@@ -51,7 +67,7 @@
                 </li>
                 <li>
                     <span>Chat</span>
-                    <a href="#"><img src="image/chat.png"/></a>
+                    <a href="#" id="chatButton"><img src="image/chat.png"/></a>
                 </li>
                 <li>
                     <span>test1</span>

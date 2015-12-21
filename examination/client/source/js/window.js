@@ -68,6 +68,14 @@ Window.prototype.genWindow = function() {
     container.appendChild(a);
 };
 
+Window.prototype.genChat = function() {
+    var container = document.querySelector("#container");
+    var template = document.querySelector("#chatWindow");
+    var a = document.importNode(template.content, true);
+    container.appendChild(a);
+};
+
+
 Window.prototype.clearAll = function() {
     var el = document.querySelector("#container");
     if (el) {

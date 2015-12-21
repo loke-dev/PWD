@@ -3,6 +3,9 @@
 var newWindow = require("./window");
 var Memory = require("./Memory");
 var TaskBar = require("./taskbar");
+var Chat = require("./Chat");
+
+
 
 var Menu = new TaskBar();
 Menu.dockBar();
@@ -55,5 +58,17 @@ dockMemory.addEventListener("click", function(event) {
         game.clear();
         game.startGame();
     }, false);
+}, false);
+
+
+var dockChat = document.querySelector("#chatButton");
+
+dockChat.addEventListener("click", function(event) {
+    event.preventDefault();
+    var Window = new newWindow();
+    Window.genChat();
+    Window.newWindow();
+    var MyChat = new Chat();
+    MyChat.server();
 }, false);
 
