@@ -7,8 +7,8 @@ var Window = function() {
 };
 
 
-Window.prototype.newWindow = function() {
-    var point = document.querySelector(".point");
+Window.prototype.newWindow = function(e) {
+    var point = e;
     var p1 = {
         x: parseInt(point.dataset.x, 10),
         y: parseInt(point.dataset.y, 10)
@@ -57,9 +57,7 @@ Window.prototype.newWindow = function() {
 
         window.removeEventListener("mousemove", drag, false);
     }, false);
-
 };
-
 
 Window.prototype.genWindow = function() {
     var container = document.querySelector("#container");
@@ -95,4 +93,10 @@ Window.prototype.popupClose = function() {
     document.querySelector("#overlay").style.display="none";
 };
 
+
+
+
+
 module.exports = Window;
+
+

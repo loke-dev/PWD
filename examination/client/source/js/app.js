@@ -50,7 +50,10 @@ dockMemory.addEventListener("click", function(event) {
     event.preventDefault();
     var Window = new newWindow();
     Window.genWindow();
-    Window.newWindow();
+    var windowDiv = document.querySelectorAll(".point");
+    for (var i = 0; i < windowDiv.length; i += 1) {
+        Window.newWindow(windowDiv[i]);
+    }
     var newMemory = document.querySelector(".startMemory");
     newMemory.addEventListener("click", function() {
         event.preventDefault();
@@ -60,15 +63,16 @@ dockMemory.addEventListener("click", function(event) {
     }, false);
 }, false);
 
-
 var dockChat = document.querySelector("#chatButton");
 
 dockChat.addEventListener("click", function(event) {
     event.preventDefault();
     var Window = new newWindow();
     Window.genChat();
-    Window.newWindow();
+    var windowDiv = document.querySelectorAll(".point");
+    for (var i = 0; i < windowDiv.length; i += 1) {
+        Window.newWindow(windowDiv[i]);
+    }
     var MyChat = new Chat();
     MyChat.server();
 }, false);
-

@@ -15,6 +15,8 @@ var Chat = function() {
  *
  */
 Chat.prototype.server = function() {
+
+    //EventListener for when communication is open
     this.socket.addEventListener("open", function () {
         var sendChat = document.querySelector(".sendChat");
         sendChat.addEventListener("click", function(event) {
@@ -39,6 +41,10 @@ Chat.prototype.server = function() {
             var li = document.createElement("li");
             li.appendChild(document.createTextNode(this.message.username + ": " + this.message.data));
             this.textArea.appendChild(li);
+
+            //Scrolls down when new message is arrived
+            var chatEl = document.querySelector(".textContainer");
+            chatEl.scrollTop = chatEl.scrollHeight;
         }
 
     }.bind(this));
