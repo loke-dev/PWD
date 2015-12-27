@@ -13,7 +13,7 @@
     <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
 </template>
 <template id="memoryWindow">
-    <div class="point" data-x="0" data-y="0">
+    <div class="point memoryWindow" data-x="0" data-y="0">
         <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Memory</p>
         <div class="pointContent">
             <button class="startMemory">Start Game</button>
@@ -23,21 +23,36 @@
     </div>
 </template>
 
+<template id="initialChat">
+    <div class="point" data-x="0" data-y="0">
+        <img src="image/chat_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
+        <div class="pointContent">
+            <div class="chatContainer">
+                <input title="Username" type="text" class="username" name="username" autofocus>
+                <button class="sendChat">Start</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+
 <template id="chatWindow">
     <div class="point" data-x="0" data-y="0">
-        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
+        <img src="image/chat_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
         <div class="pointContent">
             <div class="chatContainer">
                 <div class="textContainer">
                     <ul class="textArea">
                     </ul>
                 </div>
-                <input title="Chat" type="text" class="chatBox" name="chatBox">
+                <input title="Chat" type="text" class="chatBox" name="chatBox" autofocus>
                 <button class="sendChat">Send</button>
             </div>
         </div>
     </div>
 </template>
+
+
 
 <div id="container">
 </div>

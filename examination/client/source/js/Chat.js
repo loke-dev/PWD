@@ -1,9 +1,9 @@
 "use strict";
 
-var Chat = function() {
+var Chat = function(username) {
     this.chatBox = "";
     this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
-    this.username = "Loke";
+    this.username = username;
     this.channel = "";
     this.key = "eDBE76deU7L0H9mEBgxUKVR0VCnq0XBd";
     this.data = {};
@@ -21,16 +21,15 @@ Chat.prototype.server = function() {
         var sendChat = document.querySelector(".sendChat");
         sendChat.addEventListener("click", function(event) {
             event.preventDefault();
-            this.chatBox = document.querySelector(".chatBox");
-            this.data = {
-                "type": "message",
-                "data" : this.chatBox.value,
-                "username": this.username,
-                "channel": this.channel,
-                "key": this.key
-            };
-            this.socket.send(JSON.stringify(this.data));
-            this.chatBox.value = "";
+            this.send();
+        }.bind(this), false);
+
+        var enterChat = document.querySelector(".chatBox");
+        enterChat.addEventListener("keypress", function(e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) { // 13 is enter
+                this.send();
+            }
         }.bind(this), false);
     }.bind(this));
 
@@ -49,6 +48,22 @@ Chat.prototype.server = function() {
 
     }.bind(this));
 };
+
+
+Chat.prototype.send = function() {
+    this.chatBox = document.querySelector(".chatBox");
+    this.data = {
+        "type": "message",
+        "data": this.chatBox.value,
+        "username": this.username,
+        "channel": this.channel,
+        "key": this.key
+    };
+    this.socket.send(JSON.stringify(this.data));
+    this.chatBox.value = "";
+    this.chatBox.focus();
+};
+
 
 
 module.exports = Chat;

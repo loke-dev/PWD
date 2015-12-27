@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Code based of this source "http://codepen.io/thebabydino/pen/Afams".
+ * Move function based of this source "http://codepen.io/thebabydino/pen/Afams".
  */
 var Window = function() {
 };

@@ -54,13 +54,16 @@ dockMemory.addEventListener("click", function(event) {
     for (var i = 0; i < windowDiv.length; i += 1) {
         Window.newWindow(windowDiv[i]);
     }
-    var newMemory = document.querySelector(".startMemory");
-    newMemory.addEventListener("click", function() {
-        event.preventDefault();
-        var game = new Memory(4, 4);
-        game.clear();
-        game.startGame();
-    }, false);
+    var memoryWindow = document.querySelectorAll(".memoryWindow");
+    var memoryButton = document.querySelector(".startMemory");
+    for (var j = 0; j < memoryWindow.length; j += 1) {
+        memoryButton.addEventListener("click", function() {
+            event.preventDefault();
+            var game = new Memory(4, 4);
+            game.clear();
+            game.startGame();
+        }, false);
+    }
 }, false);
 
 var dockChat = document.querySelector("#chatButton");
