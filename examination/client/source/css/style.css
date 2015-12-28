@@ -152,7 +152,8 @@ img {
     width: 20px;
     float: left;
     pointer-events: none;
-    margin-left: 20px;
+    margin-left: 5px;
+    margin-top: 3px;
 }
 
 

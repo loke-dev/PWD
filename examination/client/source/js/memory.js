@@ -4,11 +4,13 @@
  * Memory constructor
  * @param rows - The amount of rows
  * @param cols - The amount of columns
+ * @param ele - Current element
  * @constructor
  */
-var Memory = function(rows, cols) {
+var Memory = function(rows, cols, ele) {
     this.rows = rows;
     this.cols = cols;
+    this.element = ele;
     this.arr = [];
     this.turn1 = "";
     this.turn2 = "";
@@ -17,10 +19,20 @@ var Memory = function(rows, cols) {
     this.pairs = 0;
 };
 
+Memory.prototype.memory = function() {
+    var memoryButton = this.element.querySelector(".startMemory");
+    console.log(this.element);
+    memoryButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        this.startGame();
+    }.bind(this), false);
+};
+
 /**
  * Starting point of the game
  */
 Memory.prototype.startGame = function() {
+    this.clear();
     this.createArray();
     this.createBoard();
 };
@@ -29,19 +41,22 @@ Memory.prototype.startGame = function() {
  * Clear the memory play area
  */
 Memory.prototype.clear = function() {
-    var el = document.querySelector(".memoryContainer");
+    var el = this.element.querySelector(".memoryContainer");
+    console.log(el);
     if (el) {
         while (el.hasChildNodes()) {
             el.removeChild(el.lastChild);
+            console.log(el.lastChild);
         }
     }
+    this.arr = [];
 };
 
 /**
  * Dynamically creates the board
  */
 Memory.prototype.createBoard = function() {
-    var container = document.querySelector(".memoryContainer");
+    var container = this.element.querySelector(".memoryContainer");
     var template = document.querySelectorAll("#memoryTemplate")[0].content.firstElementChild;
     var a;
 

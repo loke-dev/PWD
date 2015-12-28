@@ -3,7 +3,7 @@
 var Chat = function(username) {
     this.chatBox = "";
     this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
-    this.username = username;
+    this.username = username || "Loke";
     this.channel = "";
     this.key = "eDBE76deU7L0H9mEBgxUKVR0VCnq0XBd";
     this.data = {};
@@ -17,7 +17,7 @@ var Chat = function(username) {
 Chat.prototype.server = function() {
 
     //EventListener for when communication is open
-    this.socket.addEventListener("open", function () {
+    this.socket.addEventListener("open", function() {
         var sendChat = document.querySelector(".sendChat");
         sendChat.addEventListener("click", function(event) {
             event.preventDefault();
@@ -33,7 +33,7 @@ Chat.prototype.server = function() {
         }.bind(this), false);
     }.bind(this));
 
-    this.socket.addEventListener("message", function (event) {
+    this.socket.addEventListener("message", function(event) {
         this.message = JSON.parse(event.data);
         if (this.message.data !== "") {
             console.log(this.message.username + ": " + this.message.data);
@@ -49,21 +49,18 @@ Chat.prototype.server = function() {
     }.bind(this));
 };
 
-
 Chat.prototype.send = function() {
     this.chatBox = document.querySelector(".chatBox");
     this.data = {
-        "type": "message",
-        "data": this.chatBox.value,
-        "username": this.username,
-        "channel": this.channel,
-        "key": this.key
+        type: "message",
+        data: this.chatBox.value,
+        username: this.username,
+        channel: this.channel,
+        key: this.key
     };
     this.socket.send(JSON.stringify(this.data));
     this.chatBox.value = "";
     this.chatBox.focus();
 };
-
-
 
 module.exports = Chat;

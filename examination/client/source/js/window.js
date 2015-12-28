@@ -6,7 +6,6 @@
 var Window = function() {
 };
 
-
 Window.prototype.newWindow = function(e) {
     var point = e;
     var p1 = {
@@ -59,20 +58,12 @@ Window.prototype.newWindow = function(e) {
     }, false);
 };
 
-Window.prototype.genWindow = function() {
-    var container = document.querySelector("#container");
-    var template = document.querySelector("#memoryWindow");
-    var a = document.importNode(template.content, true);
-    container.appendChild(a);
-};
-
 Window.prototype.genChat = function() {
     var container = document.querySelector("#container");
     var template = document.querySelector("#chatWindow");
     var a = document.importNode(template.content, true);
     container.appendChild(a);
 };
-
 
 Window.prototype.clearAll = function() {
     var el = document.querySelector("#container");
@@ -84,19 +75,14 @@ Window.prototype.clearAll = function() {
 };
 
 Window.prototype.popupOpen = function() {
-    document.querySelector("#popup").style.display="block";
-    document.querySelector("#overlay").style.display="block";
+    document.querySelector("#popup").style.display = "block";
+    document.querySelector("#overlay").style.display = "block";
 };
 
 Window.prototype.popupClose = function() {
-    document.querySelector("#popup").style.display="none";
-    document.querySelector("#overlay").style.display="none";
+    document.querySelector("#popup").style.display = "none";
+    document.querySelector("#overlay").style.display = "none";
 };
 
-
-
-
-
 module.exports = Window;
-
 
