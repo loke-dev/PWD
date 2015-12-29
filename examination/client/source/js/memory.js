@@ -19,9 +19,11 @@ var Memory = function(rows, cols, ele) {
     this.pairs = 0;
 };
 
+/**
+ * Eventlistener for the start button
+ */
 Memory.prototype.memory = function() {
     var memoryButton = this.element.querySelector(".startMemory");
-    console.log(this.element);
     memoryButton.addEventListener("click", function(event) {
         event.preventDefault();
         this.startGame();
@@ -38,18 +40,22 @@ Memory.prototype.startGame = function() {
 };
 
 /**
- * Clear the memory play area
+ * Clear the memory play area and variables that saves a value
  */
 Memory.prototype.clear = function() {
     var el = this.element.querySelector(".memoryContainer");
-    console.log(el);
     if (el) {
         while (el.hasChildNodes()) {
             el.removeChild(el.lastChild);
-            console.log(el.lastChild);
         }
     }
+
     this.arr = [];
+    this.turn1 = "";
+    this.turn2 = "";
+    this.lastTile = "";
+    this.tries = 0;
+    this.pairs = 0;
 };
 
 /**
@@ -107,7 +113,16 @@ Memory.prototype.turnBrick = function(tile, index, img) {
         if (tile === this.lastTile) {
             this.pairs += 1;
             if (this.pairs === (this.cols * this.rows) / 2) {
+                var el = this.element.querySelector(".memoryContainer");
+                if (el) {
+                    while (el.hasChildNodes()) {
+                        el.removeChild(el.lastChild);
+                    }
+                }
+
+                this.win();
                 console.log("Won on " + this.tries + " number of tries!");
+                return;
             }
 
             setTimeout(function() {
@@ -151,6 +166,17 @@ Memory.prototype.shuffle = function(indexArr) {
 
     return array;
 
+};
+
+Memory.prototype.win = function() {
+    var container = this.element.querySelector(".memoryContainer");
+    var template = document.querySelectorAll("#memoryWin")[0].content;
+    var a = document.importNode(template, true);
+    container.appendChild(a);
+
+    var memoryWinTries = this.element.querySelector(".memoryWinTries");
+    var b = document.createTextNode("Won on " + this.tries + " number of tries!");
+    memoryWinTries.appendChild(b);
 };
 
 module.exports = Memory;

@@ -12,11 +12,24 @@
 <template id="memoryTemplate">
     <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
 </template>
+<template id="memoryWin">
+    <img src="image/win.png" alt="You won!" class="memoryWin">
+    <p class="memoryWinTries"></p>
+</template>
 <template id="memoryWindow">
     <div class="point memoryWindow" data-x="0" data-y="0">
         <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Memory</p>
         <div class="pointContent">
             <button class="startMemory">Start Game</button>
+            <div class="styled-select">
+            <select title="Size">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            <div class="select-button"><div class="small-arrow-down"></div></div>
+        </div>
             <div class="memoryContainer">
             </div>
         </div>

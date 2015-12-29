@@ -1,6 +1,6 @@
 "use strict";
 
-var Chat = function(username) {
+var Chat = function(username, element) {
     this.chatBox = "";
     this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
     this.username = username || "Loke";
@@ -8,7 +8,8 @@ var Chat = function(username) {
     this.key = "eDBE76deU7L0H9mEBgxUKVR0VCnq0XBd";
     this.data = {};
     this.message = undefined;
-    this.textArea = document.querySelector(".textArea");
+    this.textArea = undefined;
+    this.element = element;
 };
 
 /**
@@ -18,13 +19,13 @@ Chat.prototype.server = function() {
 
     //EventListener for when communication is open
     this.socket.addEventListener("open", function() {
-        var sendChat = document.querySelector(".sendChat");
+        var sendChat = this.element.querySelector(".sendChat");
         sendChat.addEventListener("click", function(event) {
             event.preventDefault();
             this.send();
         }.bind(this), false);
 
-        var enterChat = document.querySelector(".chatBox");
+        var enterChat = this.element.querySelector(".chatBox");
         enterChat.addEventListener("keypress", function(e) {
             var key = e.which || e.keyCode;
             if (key === 13) { // 13 is enter
@@ -39,10 +40,11 @@ Chat.prototype.server = function() {
             console.log(this.message.username + ": " + this.message.data);
             var li = document.createElement("li");
             li.appendChild(document.createTextNode(this.message.username + ": " + this.message.data));
+            this.textArea = this.element.querySelector(".textArea");
             this.textArea.appendChild(li);
 
             //Scrolls down when new message is arrived
-            var chatEl = document.querySelector(".textContainer");
+            var chatEl = this.element.querySelector(".textContainer");
             chatEl.scrollTop = chatEl.scrollHeight;
         }
 
@@ -50,7 +52,7 @@ Chat.prototype.server = function() {
 };
 
 Chat.prototype.send = function() {
-    this.chatBox = document.querySelector(".chatBox");
+    this.chatBox = this.element.querySelector(".chatBox");
     this.data = {
         type: "message",
         data: this.chatBox.value,

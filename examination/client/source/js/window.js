@@ -3,11 +3,12 @@
 /**
  * Move function based of this source "http://codepen.io/thebabydino/pen/Afams".
  */
-var Window = function() {
+var Window = function(ele) {
+    this.ele = ele;
 };
 
-Window.prototype.newWindow = function(e) {
-    var point = e;
+Window.prototype.newWindow = function() {
+    var point = this.ele;
     var p1 = {
         x: parseInt(point.dataset.x, 10),
         y: parseInt(point.dataset.y, 10)
@@ -46,7 +47,7 @@ Window.prototype.newWindow = function(e) {
         else {
             flag = false;
         }
-    }, false);
+    }.bind(this), false);
 
     window.addEventListener("mouseup", function() {
         if (flag) {
@@ -55,14 +56,11 @@ Window.prototype.newWindow = function(e) {
         }
 
         window.removeEventListener("mousemove", drag, false);
-    }, false);
+    }.bind(this), false);
 };
 
 Window.prototype.genChat = function() {
-    var container = document.querySelector("#container");
-    var template = document.querySelector("#chatWindow");
-    var a = document.importNode(template.content, true);
-    container.appendChild(a);
+
 };
 
 Window.prototype.clearAll = function() {
