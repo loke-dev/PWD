@@ -1,44 +1,49 @@
 "use strict";
 
+var Chat = require("./Chat");
+
 /**
  * Move function based of this source "http://codepen.io/thebabydino/pen/Afams".
  */
 var Window = function(ele) {
     this.ele = ele;
+    this.movable = undefined;
+    this.username = undefined;
 };
 
 Window.prototype.newWindow = function() {
-    var point = this.ele;
+    var element = this.ele;
+    console.log(element);
     var p1 = {
-        x: parseInt(point.dataset.x, 10),
-        y: parseInt(point.dataset.y, 10)
+        x: parseInt(element.dataset.x, 10),
+        y: parseInt(element.dataset.y, 10)
     };
     var p0 = {
-        x: parseInt(point.dataset.x, 10),
-        y: parseInt(point.dataset.y, 10)
+        x: parseInt(element.dataset.x, 10),
+        y: parseInt(element.dataset.y, 10)
     };
     var coords = {
-        x: parseInt(point.dataset.x, 10),
-        y: parseInt(point.dataset.y, 10)
+        x: parseInt(element.dataset.x, 10),
+        y: parseInt(element.dataset.y, 10)
     };
     var flag;
 
     var drag = function(e) {
         p1 = {x: e.clientX, y: e.clientY};
 
-        point.dataset.x = coords.x + p1.x - p0.x;
-        point.dataset.y = coords.y + p1.y - p0.y;
+        element.dataset.x = coords.x + p1.x - p0.x;
+        element.dataset.y = coords.y + p1.y - p0.y;
 
-        point.style["-webkit-transform"] =
-            "translate(" + point.dataset.x + "px, " + point.dataset.y + "px)";
-        point.style.transform =
-            "translate(" + point.dataset.x + "px, " + point.dataset.y + "px)";
+        element.style["-webkit-transform"] =
+            "translate(" + element.dataset.x + "px, " + element.dataset.y + "px)";
+        element.style.transform =
+            "translate(" + element.dataset.x + "px, " + element.dataset.y + "px)";
     };
 
     window.addEventListener("mousedown", function(e) {
         var t = e.target;
 
-        if (t === point) {
+        if (t === element.querySelector("h1")) {
             p0 = {x: e.clientX, y: e.clientY};
             flag = true;
 
@@ -59,10 +64,6 @@ Window.prototype.newWindow = function() {
     }.bind(this), false);
 };
 
-Window.prototype.genChat = function() {
-
-};
-
 Window.prototype.clearAll = function() {
     var el = document.querySelector("#container");
     if (el) {
@@ -70,6 +71,44 @@ Window.prototype.clearAll = function() {
             el.removeChild(el.lastChild);
         }
     }
+};
+
+Window.prototype.clearWindow = function(element) {
+    var el = element;
+    if (el) {
+        while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild);
+        }
+    }
+};
+
+Window.prototype.genChat = function() {
+    var initChat = this.ele.querySelector(".button");
+    initChat.addEventListener("click", function(event) {
+        event.preventDefault();
+        this.chatFunc();
+    }.bind(this), false);
+
+    var initChatEnter = this.ele.querySelector(".userName");
+    initChatEnter.addEventListener("keypress", function(e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            this.chatFunc();
+        }
+    }.bind(this), false);
+};
+
+Window.prototype.chatFunc = function() {
+    event.preventDefault();
+    this.username = this.ele.querySelector(".userName").value;
+    var windowContainer = this.ele.querySelector(".windowContainer");
+    var chatTemplate = document.querySelector("#chatWindow");
+    var tempWindow = document.importNode(chatTemplate.content, true);
+    this.clearWindow(windowContainer);
+    windowContainer.appendChild(tempWindow);
+    var MyChat = new Chat(this.username, this.ele);
+    MyChat.server();
+    this.ele.querySelector(".chatBox").focus();
 };
 
 Window.prototype.popupOpen = function() {

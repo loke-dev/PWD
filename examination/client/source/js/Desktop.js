@@ -3,21 +3,20 @@
 var Window = require("./window");
 var Memory = require("./Memory");
 var TaskBar = require("./taskbar");
-var Chat = require("./Chat");
-
-var Menu = new TaskBar();
-Menu.dockBar();
-
-var initWindow = new Window();
-initWindow.popupClose();
 
 var Desktop = function() {
     this.ele = undefined;
     this.id = undefined;
     this.number = 0;
+    this.username = undefined;
 };
 
 Desktop.prototype.generate = function() {
+    var Menu = new TaskBar();
+    Menu.dockBar();
+    var initWindow = new Window();
+    initWindow.popupClose();
+
     var dockClearAll = document.querySelector("#clearAllButton");
     dockClearAll.addEventListener("click", function(event) {
     event.preventDefault();
@@ -71,18 +70,16 @@ Desktop.prototype.generate = function() {
     dockChat.addEventListener("click", function(event) {
         event.preventDefault();
         var container = document.querySelector("#container");
-        var template = document.querySelector("#chatWindow");
+        var template = document.querySelector("#initialChat");
         var temp = document.importNode(template.content, true);
         this.id = "id-" + this.number.toString();
         temp.firstElementChild.setAttribute("id", this.id);
         container.appendChild(temp);
         this.ele = document.getElementById(this.id);
         this.number += 1;
-        var MyChat = new Chat("Loke!", this.ele);
-        MyChat.server();
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
-
+        dragWindow.genChat();
     }.bind(this), false);
 };
 

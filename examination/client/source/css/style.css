@@ -7,7 +7,7 @@
 }
 
 html {
-    background: url("/image/background.jpg") no-repeat center center fixed;
+    background: url("/image/background3.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -54,18 +54,17 @@ img {
     position: absolute;
     top: 10%;
     left: 10%;
-    width: 265px;
+    width: 262px;
     height: 25px;
     background: rgba(0, 0, 0, 0.5);
-    cursor: move;
-    color: white;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: -moz-linear-gradient(top,  rgba(0,0,0,0.25) 0%, rgba(0,0,0,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,1) 100%);
-    background: linear-gradient(to bottom,  rgba(0,0,0,0.25) 0%,rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#000000',GradientType=0 );
+    cursor: default;
+    color: #676767;
+    background: #e5e3e5;
+    background: linear-gradient(#ebebeb, #cecdce);
+    border-top: 1px solid #f4f3f4;
+    border-bottom: 1px solid #afaeaf;
     text-indent: 5px;
+    border-radius: 6px 6px 0 0;
 }
 
 .point:after {
@@ -85,10 +84,16 @@ img {
     height: 350px;
     background: rgba(255, 255, 255, 1);
     cursor: default;
-    border: solid;
-    border-color: black;
-    border-width: 2px;
     text-indent: 0;
+}
+
+.chatWindow {
+    width: 400px;
+    height: 500px;
+}
+
+.chatTitle {
+    width: 400px;
 }
 
 .titleText {
@@ -140,31 +145,131 @@ img {
     cursor: pointer;
 }
 
-.material-icons.md-18 {
-    font-size: 18px;
-    position: absolute;
-    pointer-events: none;
-
-}
-.material-icons.md-24 {
-    font-size: 24px;
-    pointer-events: none;
-}
-.material-icons.md-36 {
-    font-size: 36px;
-    pointer-events: none;
-}
-.material-icons.md-48 {
-    font-size: 48px;
-    pointer-events: none;
-}
-
 .smallIcon {
     width: 20px;
     float: left;
     pointer-events: none;
     margin-left: 5px;
     margin-top: 3px;
+}
+
+/* Window */
+
+.window {
+    background: -webkit-linear-gradient(rgba(233, 233, 233, 1.0), rgba(178, 178, 178, 1.0) 21px, #6A6A6A 1px, #EDEDED, #EDEDED 23px);
+    height: 450px;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 22px 70px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+    padding: 3px 5px;
+    text-align: left;
+    position:absolute;
+}
+.windowContainer {
+    padding:15px
+}
+h1 {
+    font: normal normal 13px/20px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    text-align: center;
+    position:relative;
+    z-index:2;
+    top:-23px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    color:#444;
+}
+h2 {
+    font: normal bold 13px/20px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    margin-bottom:3px;
+}
+p {
+    font: normal normal 11px/14px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    padding-top: 3px;
+}
+h2, p {
+    margin-left: 86px;
+}
+p a,
+p a:link,
+p a:visited,
+p a:hover,
+p a:active {
+    border-bottom: 1px dotted #888;
+    text-decoration: none;
+    color: #000;
+}
+nav{
+    height:19px;
+}
+nav a {
+    display: inline-block;
+    margin: 2px 2px 3px 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: #f36;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5);
+    text-indent: -9999px;
+    position: relative;
+}
+
+nav a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow:inset 0 1px 4px rgba(0, 0, 0, .8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+nav a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    bottom: 1px;
+    right: 1px;
+    border-radius: 100%;
+    background: -webkit-linear-gradient(white, rgba(255, 255, 255, .9) 2%, white, rgba(255, 255, 255, .4) 16%, rgba(255, 255, 255, 0) 43%, rgba(255, 255, 255, .74), rgba(255, 255, 255, .7) 122%, rgba(255, 255, 255, .7));
+    box-shadow: inset 0 -3px 0 3px rgba(255, 255, 255, 0.2), inset 0 2px -5px 3px rgba(255, 255, 255, 0.2);
+}
+
+nav a.close {
+    background: #FD4E4E;
+}
+
+nav a.minimize {
+    background: #F3BB55;
+}
+
+nav a.maximize {
+    background: #96D16F;
+}
+
+.button {
+    font: normal normal 13px/20px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    height: 21px;
+    width:79px;
+    background:-webkit-linear-gradient(white 2px,#FCFCFC, #F3F3F3 11px, #ECECEC 4px, #FCFCFC 54px);
+    display:block;
+    float:right;
+    margin-top:5px;
+    margin-right: 100px;
+    cursor: pointer;
+    text-align: center;
+    border-radius:4px;
+    box-shadow:inset 0 0 0 1px #909090, 0 1px 0 0 #DFDFDF;
+    color:#000;
+    text-decoration:none;
+}
+
+.userName {
+    margin-left: 10px;
+    margin-top: 5px;
 }
 
 
@@ -394,18 +499,18 @@ input.s3-btn{
     background: #ffffff;
 }
 ::-webkit-scrollbar-thumb:active {
-    background: #000000;
+    background: #ffffff;
 }
 ::-webkit-scrollbar-track {
-    background: #666666;
+    background: #a1a1a1;
     border: 0 none #ffffff;
     border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
-    background: #666666;
+    background: #a1a1a1;
 }
 ::-webkit-scrollbar-track:active {
-    background: #333333;
+    background: #727272;
 }
 ::-webkit-scrollbar-corner {
     background: transparent;
@@ -419,8 +524,10 @@ input.s3-btn{
     -moz-user-select: text; /* Firefox */
     -ms-user-select: text; /* IE10+ */
     color: black;
-    overflow: scroll;
-    height: 331px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 375px;
+    border: 0;
 }
 
 .textArea {
@@ -429,6 +536,31 @@ input.s3-btn{
     -ms-user-select: text; /* IE10+ */
 }
 
+.sendChat {
+    border: 0;
+    background: transparent;
+}
+
+.sendPic{
+    width: 30px;
+    height: 25px;
+    margin-top: -16px;
+    margin-left: 5px;
+    position: relative;
+    top: 8px;
+}
+
+.chatBox {
+    height: 30px;
+    width: 320px;
+    border-radius: 15px;
+    text-indent: 8px;
+    padding-bottom: 3px;
+}
+
+.chatBox:focus {
+    outline: 0;
+}
 
 /* Memory altervative sizes */
 

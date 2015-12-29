@@ -37,31 +37,32 @@
 </template>
 
 <template id="initialChat">
-    <div class="point" data-x="0" data-y="0">
-        <img src="image/chat_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
-        <div class="pointContent">
-            <div class="chatContainer">
-                <input title="Username" type="text" class="username" name="username" autofocus>
-                <button class="sendChat">Start</button>
-            </div>
+    <div class="window chat" data-x="0" data-y="0">
+        <nav>
+            <a href="#" class="close"></a>
+            <!--<a href="#" class="minimize"></a>-->
+            <!--<a href="#" class="maximize"></a>-->
+            <h1>Title</h1>
+        </nav>
+        <div class="windowContainer">
+            <h2>Choose your nickname:</h2>
+            <input title="Username" type="text" class="userName" name="username" autofocus>
+            <a href="#" class="button">Submit</a>
         </div>
     </div>
 </template>
 
 
 <template id="chatWindow">
-    <div class="point" data-x="0" data-y="0">
-        <img src="image/chat_icon.png" class="smallIcon"/><p class="titleText">Chat</p>
-        <div class="pointContent">
-            <div class="chatContainer">
-                <div class="textContainer">
-                    <ul class="textArea">
-                    </ul>
-                </div>
-                <input title="Chat" type="text" class="chatBox" name="chatBox" autofocus>
-                <button class="sendChat">Send</button>
-            </div>
+    <div class="chatContainer">
+        <div class="textContainer">
+            <ul class="textArea">
+            </ul>
         </div>
+        <input title="Chat" type="text" class="chatBox" name="chatBox" autofocus>
+        <button class="sendChat">
+            <img src="image/send.png" alt="submit" class="sendPic"/>
+        </button>
     </div>
 </template>
 
