@@ -7,7 +7,6 @@ var Chat = require("./Chat");
  */
 var Window = function(ele) {
     this.ele = ele;
-    this.movable = undefined;
     this.username = undefined;
 };
 
@@ -86,6 +85,8 @@ Window.prototype.genChat = function() {
     var initChat = this.ele.querySelector(".button");
     initChat.addEventListener("click", function(event) {
         event.preventDefault();
+        this.setUsername();
+        this.setPlaceholder();
         this.chatFunc();
     }.bind(this), false);
 
@@ -93,6 +94,8 @@ Window.prototype.genChat = function() {
     initChatEnter.addEventListener("keypress", function(e) {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
+            this.setUsername();
+            this.setPlaceholder();
             this.chatFunc();
         }
     }.bind(this), false);
@@ -100,7 +103,6 @@ Window.prototype.genChat = function() {
 
 Window.prototype.chatFunc = function() {
     event.preventDefault();
-    this.username = this.ele.querySelector(".userName").value;
     var windowContainer = this.ele.querySelector(".windowContainer");
     var chatTemplate = document.querySelector("#chatWindow");
     var tempWindow = document.importNode(chatTemplate.content, true);
@@ -109,6 +111,35 @@ Window.prototype.chatFunc = function() {
     var MyChat = new Chat(this.username, this.ele);
     MyChat.server();
     this.ele.querySelector(".chatBox").focus();
+    this.saveUsername();
+};
+
+Window.prototype.setUsername = function() {
+    var localUser;
+    var username = this.ele.querySelector(".userName").value;
+
+    if (localStorage.getItem("username") !== null) {
+        localUser = JSON.parse(localStorage.getItem("username"));
+    }
+
+    if (username) {
+        this.username = username;
+        console.log("using text field");
+    } else {
+        this.username = localUser || "Loke";
+        console.log("using local storage or default");
+    }
+};
+
+Window.prototype.saveUsername = function() {
+    var username = this.ele.querySelector(".userName");
+    if (username.value) {
+        localStorage.setItem("username", JSON.stringify(username.value));
+    }
+};
+
+Window.prototype.setPlaceholder = function() {
+    this.ele.querySelector(".userName").placeholder = this.username;
 };
 
 Window.prototype.popupOpen = function() {

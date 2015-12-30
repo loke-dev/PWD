@@ -42,11 +42,11 @@
             <a href="#" class="close"></a>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
-            <h1>Title</h1>
+            <h1>Chat</h1>
         </nav>
         <div class="windowContainer">
             <h2>Choose your nickname:</h2>
-            <input title="Username" type="text" class="userName" name="username" autofocus>
+            <input title="Username" type="text" class="userName" name="Nickname" placeholder="Nickname.." maxlength="18" autofocus>
             <a href="#" class="button">Submit</a>
         </div>
     </div>
@@ -71,6 +71,25 @@
 <div id="container">
 </div>
 
+<div class="bsod hidden">
+    <div class="error">
+        <div class="error-header"><span>Windows<span></div>
+
+        <ul>
+            <li>A fatal exception C8 has occurred at E4D4:C1D5D6C9 in C4C 9E2(D4) +<br> </li>
+            <li>D9D6C3D2E2. The current application will be terminated.</li>
+            <li>Press any key if this wasn't what you expected.</li>
+            <li>Press ESC to close your application. You will lose any unsaved information in all tabs.</li>
+            <li><br></li>
+            <li>Technical information:</li>
+            <li>*** STOP: 0.000000D1 (0x0000000C, 0x00000002, 0x000000000, 0x000001337</li>
+            <li>*** trololol.sys - Adress 133700000 base at 101010, Datestamp 000000</li>
+        </ul>
+        <br><br>
+        <p class="center">Press any key to continue</p>
+    </div>
+</div>
+
 <div class="overlay" id="overlay"></div>
 
 <div class="popup" id="popup">
@@ -92,23 +111,19 @@
             <ul>
                 <li>
                     <span>Memory</span>
-                    <a href="#" id="memoryButton"><img src="image/memory.png"/></a>
+                    <a href="#" id="memoryButton"><img src="image/brain.png"/></a>
                 </li>
                 <li>
                     <span>Chat</span>
-                    <a href="#" id="chatButton"><img src="image/chat.png"/></a>
+                    <a href="#" id="chatButton"><img src="image/chat2.png"/></a>
                 </li>
                 <li>
-                    <span>test1</span>
-                    <a href="#"><img src="image/template.png"/></a>
-                </li>
-                <li>
-                    <span>test2</span>
-                    <a href="#"><img src="image/template.png"/></a>
+                    <span>Explorer</span>
+                    <a href="#" id="explorerButton"><img src="image/ie.png"/></a>
                 </li>
                 <li>
                     <span>Clear Desktop</span>
-                    <a href="#" id="clearAllButton"><img src="image/clear.png"/></a>
+                    <a href="#" id="clearAllButton"><img src="image/trash.png"/></a>
                 </li>
             </ul>
             <div class="base"></div>

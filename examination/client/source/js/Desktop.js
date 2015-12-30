@@ -81,6 +81,18 @@ Desktop.prototype.generate = function() {
         dragWindow.newWindow();
         dragWindow.genChat();
     }.bind(this), false);
+
+    var dockExplorer = document.querySelector("#explorerButton");
+
+    dockExplorer.addEventListener("click", function(event) {
+        event.preventDefault();
+        var bsod = document.querySelector(".bsod");
+        bsod.classList.remove("hidden");
+        window.addEventListener("keypress", function() {
+            bsod.classList.add("hidden");
+        }, false);
+    }, false);
+
 };
 
 module.exports = Desktop;
