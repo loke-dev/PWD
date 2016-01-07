@@ -101,34 +101,40 @@ Desktop.prototype.generate = function() {
 
     guestbook.addEventListener("click", function(event) {
         event.preventDefault();
-        var container = document.querySelector("#container");
-        var template = document.querySelector("#guestbook");
-        var temp = document.importNode(template.content, true);
-        this.id = "id-" + this.number.toString();
-        temp.firstElementChild.setAttribute("id", this.id);
-        container.appendChild(temp);
-        this.ele = document.getElementById(this.id);
-        this.number += 1;
-        var dragWindow = new Window(this.ele);
-        dragWindow.newWindow();
-        this.close(dragWindow);
+        var clickOnce = document.querySelector(".guestbook");
+        if (!clickOnce) {
+            var container = document.querySelector("#container");
+            var template = document.querySelector("#guestbook");
+            var temp = document.importNode(template.content, true);
+            this.id = "id-" + this.number.toString();
+            temp.firstElementChild.setAttribute("id", this.id);
+            container.appendChild(temp);
+            this.ele = document.getElementById(this.id);
+            this.number += 1;
+            var dragWindow = new Window(this.ele);
+            dragWindow.newWindow();
+            this.close(dragWindow);
+        }
     }.bind(this), false);
 
     var settings = document.querySelector("#settingsButton");
 
     settings.addEventListener("click", function(event) {
         event.preventDefault();
-        var container = document.querySelector("#container");
-        var template = document.querySelector("#settings");
-        var temp = document.importNode(template.content, true);
-        this.id = "id-" + this.number.toString();
-        temp.firstElementChild.setAttribute("id", this.id);
-        container.appendChild(temp);
-        this.ele = document.getElementById(this.id);
-        this.number += 1;
-        var dragWindow = new Window(this.ele);
-        dragWindow.newWindow();
-        this.close(dragWindow);
+        var clickOnce = document.querySelector(".settings");
+        if (!clickOnce) {
+            var container = document.querySelector("#container");
+            var template = document.querySelector("#settings");
+            var temp = document.importNode(template.content, true);
+            this.id = "id-" + this.number.toString();
+            temp.firstElementChild.setAttribute("id", this.id);
+            container.appendChild(temp);
+            this.ele = document.getElementById(this.id);
+            this.number += 1;
+            var dragWindow = new Window(this.ele);
+            dragWindow.newWindow();
+            this.close(dragWindow);
+        }
     }.bind(this), false);
 };
 
