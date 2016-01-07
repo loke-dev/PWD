@@ -52,7 +52,7 @@ Desktop.prototype.generate = function() {
     dockMemory.addEventListener("click", function(event) {
         event.preventDefault();
         var container = document.querySelector("#container");
-        var template = document.querySelector("#memoryWindow");
+        var template = document.querySelector("#initialMemory");
         var temp = document.importNode(template.content, true);
         this.id = "id-" + this.number.toString();
         temp.firstElementChild.setAttribute("id", this.id);

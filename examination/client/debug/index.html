@@ -36,6 +36,32 @@
     </div>
 </template>
 
+
+<template id="initialMemory">
+    <div class="window memory" data-x="0" data-y="0">
+        <nav>
+            <a href="#" class="close"></a>
+            <!--<a href="#" class="minimize"></a>-->
+            <!--<a href="#" class="maximize"></a>-->
+            <h1>Memory - Linux edition</h1>
+        </nav>
+        <div class="windowContainer">
+            <button class="startMemory">Start Game</button>
+            <div class="styled-select">
+                <select title="Size">
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <div class="select-button"><div class="small-arrow-down"></div></div>
+            </div>
+            <div class="memoryContainer">
+            </div>
+        </div>
+    </div>
+</template>
+
 <template id="initialChat">
     <div class="window chat" data-x="0" data-y="0">
         <nav>
@@ -73,7 +99,7 @@
 
 <div class="bsod hidden">
     <div class="error">
-        <div class="error-header"><span>Windows<span></div>
+        <div class="error-header"><span>Windows</span></div>
 
         <ul>
             <li>A fatal exception C8 has occurred at E4D4:C1D5D6C9 in C4C 9E2(D4) +<br> </li>

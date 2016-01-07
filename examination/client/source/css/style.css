@@ -34,14 +34,15 @@ footer {
 }
 
 img {
-    width: 65px;
+    width: 85px;
+    height: 120px;
 }
 
 .removed {
     visibility: hidden;
 }
 
-.window{
+.window {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     width: 250px;
@@ -112,10 +113,13 @@ img {
 .memoryPic {
     border-radius: 10px;
     margin-top: 3px;
+    margin-left: 5px;
 }
 
 .memoryWin {
-    width: 250px;
+    width: 355px;
+    height: inherit;
+    margin-top: 75px;
 }
 
 .memoryWinTries {
@@ -159,8 +163,6 @@ img {
 
 .window {
     background: -webkit-linear-gradient(rgba(233, 233, 233, 1.0), rgba(178, 178, 178, 1.0) 21px, #6A6A6A 1px, #EDEDED, #EDEDED 23px);
-    height: 450px;
-    width: 400px;
     margin: 0 auto;
     border-radius: 5px;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 22px 70px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
@@ -168,6 +170,17 @@ img {
     text-align: left;
     position:absolute;
 }
+
+.chat {
+    height: 450px;
+    width: 400px;
+}
+
+.memory {
+    height: 650px;
+    width: 400px;
+}
+
 .windowContainer {
     padding:15px;
 }
@@ -574,7 +587,7 @@ input.s3-btn{
     overflow:hidden;
     display:block;
     width:12em;
-    margin:auto;
+    margin: 7px 55px 0 10px;
     font-size:1em; /*use this to scale the select*/
 }
 
@@ -656,7 +669,7 @@ input.s3-btn{
     width: 100%;
     height: 100%;
     color: #fff;
-    margin: 0;
+    margin: 0 auto;
     z-index: 100000;
 }
 
@@ -674,9 +687,8 @@ input.s3-btn{
 .error {
     position: absolute;
     font-size: 20px;
-    margin-left: 175px;
-    margin-top: 250px;
-
+    left: 25%;
+    top: 25%;
 }
 
 .center {
