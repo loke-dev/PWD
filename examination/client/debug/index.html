@@ -16,26 +16,6 @@
     <img src="image/win.png" alt="You won!" class="memoryWin">
     <p class="memoryWinTries"></p>
 </template>
-<template id="memoryWindow">
-    <div class="point memoryWindow" data-x="0" data-y="0">
-        <img src="image/memory_icon.png" class="smallIcon"/><p class="titleText">Memory</p>
-        <div class="pointContent">
-            <button class="startMemory">Start Game</button>
-            <div class="styled-select">
-            <select title="Size">
-                <option selected>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-            <div class="select-button"><div class="small-arrow-down"></div></div>
-        </div>
-            <div class="memoryContainer">
-            </div>
-        </div>
-    </div>
-</template>
-
 
 <template id="initialMemory">
     <div class="window memory" data-x="0" data-y="0">
@@ -47,13 +27,13 @@
             <h1>Memory - Linux edition</h1>
         </nav>
         <div class="windowContainer">
-            <button class="startMemory">Start Game</button>
+            <button class="startMemory osx">Start Game</button>
             <div class="styled-select">
                 <select title="Size">
-                    <option selected>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                 </select>
                 <div class="select-button"><div class="small-arrow-down"></div></div>
             </div>
@@ -74,8 +54,8 @@
         </nav>
         <div class="windowContainer">
             <h2>Choose your nickname:</h2>
-            <input title="Username" type="text" class="userName" name="Nickname" placeholder="Nickname.." maxlength="18" autofocus>
-            <a href="#" class="button">Submit</a>
+            <input title="Username" type="text" class="userName textField" name="Nickname" placeholder="Nickname.." maxlength="18" autofocus>
+            <a href="#" class="button osx">Submit</a>
         </div>
     </div>
 </template>
@@ -137,7 +117,7 @@
             <ul class="textArea">
             </ul>
         </div>
-        <input title="Chat" type="text" class="chatBox" name="chatBox" autofocus>
+        <input title="Chat" type="text" class="chatBox textField" name="chatBox" autofocus>
         <button class="sendChat">
             <img src="image/send.png" alt="submit" class="sendPic"/>
         </button>

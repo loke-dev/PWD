@@ -21,29 +21,29 @@ Desktop.prototype.generate = function() {
     var dockClearAll = document.querySelector("#clearAllButton");
     dockClearAll.addEventListener("click", function(event) {
     event.preventDefault();
-    var Window = new Window();
-    Window.popupOpen();
+    var dragWindow = new Window();
+    dragWindow.popupOpen();
 
     var popupClose = document.querySelector(".s3-btn-close");
     popupClose.addEventListener("click", function(event) {
         event.preventDefault();
-        var Window = new Window();
-        Window.popupClose();
+        var dragWindow = new Window();
+        dragWindow.popupClose();
     }, false);
 
     var popupClose2 = document.querySelector(".cancelPopup");
     popupClose2.addEventListener("click", function(event) {
         event.preventDefault();
-        var Window = new Window();
-        Window.popupClose();
+        var dragWindow = new Window();
+        dragWindow.popupClose();
     }, false);
 
     var popupClear = document.querySelector(".confirmPopup");
     popupClear.addEventListener("click", function(event) {
         event.preventDefault();
-        var Window = new Window();
-        Window.clearAll();
-        Window.popupClose();
+        var dragWindow = new Window();
+        dragWindow.clearAll();
+        dragWindow.popupClose();
     }, false);
 
 }, false);
