@@ -52,6 +52,10 @@ img {
     left: 20%;
 }
 
+.guestbook {
+    width: 500px;
+    height: 600px;
+}
 
 .point {
     position: absolute;
@@ -141,7 +145,7 @@ img {
     border-radius: 10px;
     color: #ffffff;
     padding: 12px 12px 12px 12px;
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 10px;
 
 }
@@ -582,13 +586,14 @@ input.s3-btn{
 /* Memory altervative sizes */
 
 .styled-select {
-    position:relative;
-    border:solid 1px #888888;
-    overflow:hidden;
-    display:block;
-    width:12em;
+    position: relative;
+    border: solid 1px #888888;
+    overflow: hidden;
+    display: block;
+    width: 12em;
     margin: 7px 55px 0 10px;
-    font-size:1em; /*use this to scale the select*/
+    font-size: 1em; /*use this to scale the select*/
+    float: left;
 }
 
 

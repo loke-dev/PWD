@@ -10,7 +10,7 @@
 </head>
 <body>
 <template id="memoryTemplate">
-    <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic"></a>
+    <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic" draggable="false"></a>
 </template>
 <template id="memoryWin">
     <img src="image/win.png" alt="You won!" class="memoryWin">
@@ -78,6 +78,40 @@
     </div>
 </template>
 
+<template id="guestbook">
+    <div class="window guestbook" data-x="0" data-y="0">
+        <nav>
+            <a href="#" class="close"></a>
+            <!--<a href="#" class="minimize"></a>-->
+            <!--<a href="#" class="maximize"></a>-->
+            <h1>Guestbook</h1>
+        </nav>
+        <div class="windowContainer">
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                 */
+                /*
+                 var disqus_config = function () {
+                 this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                 this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                 };
+                 */
+                (function() {  // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+
+                    s.src = '//lokecarlsson.disqus.com/embed.js';
+
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+
+        </div>
+    </div>
+</template>
 
 <template id="chatWindow">
     <div class="chatContainer">
@@ -146,6 +180,10 @@
                 <li>
                     <span>Explorer</span>
                     <a href="#" id="explorerButton"><img src="image/ie.png"/></a>
+                </li>
+                <li>
+                    <span>Guestbook</span>
+                    <a href="#" id="guestBookButton"><img src="image/guestbook.png"/></a>
                 </li>
                 <li>
                     <span>Clear Desktop</span>

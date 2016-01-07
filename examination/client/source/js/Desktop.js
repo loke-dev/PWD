@@ -93,6 +93,23 @@ Desktop.prototype.generate = function() {
         }, false);
     }, false);
 
+    var guestbook = document.querySelector("#guestBookButton");
+
+    guestbook.addEventListener("click", function(event) {
+        event.preventDefault();
+        var container = document.querySelector("#container");
+        var template = document.querySelector("#guestbook");
+        var temp = document.importNode(template.content, true);
+        this.id = "id-" + this.number.toString();
+        temp.firstElementChild.setAttribute("id", this.id);
+        container.appendChild(temp);
+        this.ele = document.getElementById(this.id);
+        this.number += 1;
+        var dragWindow = new Window(this.ele);
+        dragWindow.newWindow();
+        dragWindow.genChat();
+    }.bind(this), false);
+
 };
 
 module.exports = Desktop;
