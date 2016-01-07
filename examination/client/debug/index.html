@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Examination 3</title>
+    <title>Desktop</title>
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -41,6 +41,7 @@
     <div class="window memory" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
+            <img src="image/brain.png" class="tileIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Memory - Linux edition</h1>
@@ -66,6 +67,7 @@
     <div class="window chat" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
+            <img src="image/chat2.png" class="tileIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Chat</h1>
@@ -82,6 +84,7 @@
     <div class="window guestbook" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
+            <img src="image/guestbook.png" class="tileIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Guestbook</h1>
@@ -102,12 +105,27 @@
                 (function() {  // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
 
-                    s.src = '//lokecarlsson.disqus.com/embed.js';
+                    s.src = '//lokedesktop.disqus.com/embed.js';
 
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                 })();
             </script>
+
+        </div>
+    </div>
+</template>
+
+<template id="settings">
+    <div class="window settings" data-x="0" data-y="0">
+        <nav>
+            <a href="#" class="close"></a>
+            <img src="image/settings.png" class="tileIcon"/>
+            <!--<a href="#" class="minimize"></a>-->
+            <!--<a href="#" class="maximize"></a>-->
+            <h1>Settings</h1>
+        </nav>
+        <div class="windowContainer">
 
         </div>
     </div>
@@ -134,7 +152,6 @@
 <div class="bsod hidden">
     <div class="error">
         <div class="error-header"><span>Windows</span></div>
-
         <ul>
             <li>A fatal exception C8 has occurred at E4D4:C1D5D6C9 in C4C 9E2(D4) +<br> </li>
             <li>D9D6C3D2E2. The current application will be terminated.</li>
@@ -184,6 +201,10 @@
                 <li>
                     <span>Guestbook</span>
                     <a href="#" id="guestBookButton"><img src="image/guestbook.png"/></a>
+                </li>
+                <li>
+                    <span>Settings</span>
+                    <a href="#" id="settingsButton"><img src="image/settings.png"/></a>
                 </li>
                 <li>
                     <span>Clear Desktop</span>

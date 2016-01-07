@@ -9,6 +9,7 @@ var Desktop = function() {
     this.id = undefined;
     this.number = 0;
     this.username = undefined;
+    this.sound = new Audio("http://5.101.100.107/bsod.wav");
 };
 
 Desktop.prototype.generate = function() {
@@ -63,6 +64,7 @@ Desktop.prototype.generate = function() {
         game.memory();
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
+        this.close(dragWindow);
     }.bind(this), false);
 
     var dockChat = document.querySelector("#chatButton");
@@ -80,18 +82,20 @@ Desktop.prototype.generate = function() {
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
         dragWindow.genChat();
+        this.close(dragWindow);
     }.bind(this), false);
 
     var dockExplorer = document.querySelector("#explorerButton");
 
     dockExplorer.addEventListener("click", function(event) {
         event.preventDefault();
+        this.sound.play();
         var bsod = document.querySelector(".bsod");
         bsod.classList.remove("hidden");
         window.addEventListener("keypress", function() {
             bsod.classList.add("hidden");
         }, false);
-    }, false);
+    }.bind(this), false);
 
     var guestbook = document.querySelector("#guestBookButton");
 
@@ -107,9 +111,33 @@ Desktop.prototype.generate = function() {
         this.number += 1;
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
-        dragWindow.genChat();
+        this.close(dragWindow);
     }.bind(this), false);
 
+    var settings = document.querySelector("#settingsButton");
+
+    settings.addEventListener("click", function(event) {
+        event.preventDefault();
+        var container = document.querySelector("#container");
+        var template = document.querySelector("#settings");
+        var temp = document.importNode(template.content, true);
+        this.id = "id-" + this.number.toString();
+        temp.firstElementChild.setAttribute("id", this.id);
+        container.appendChild(temp);
+        this.ele = document.getElementById(this.id);
+        this.number += 1;
+        var dragWindow = new Window(this.ele);
+        dragWindow.newWindow();
+        this.close(dragWindow);
+    }.bind(this), false);
+};
+
+Desktop.prototype.close = function(window) {
+    var close = this.ele.querySelector(".close");
+    close.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.closeCurrent();
+    }, false);
 };
 
 module.exports = Desktop;

@@ -10,9 +10,12 @@ var Window = function(ele) {
     this.username = undefined;
 };
 
+Window.prototype.closeCurrent = function() {
+    this.ele.remove();
+};
+
 Window.prototype.newWindow = function() {
     var element = this.ele;
-    console.log(element);
     var p1 = {
         x: parseInt(element.dataset.x, 10),
         y: parseInt(element.dataset.y, 10)
