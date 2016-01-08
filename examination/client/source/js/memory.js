@@ -2,14 +2,12 @@
 
 /**
  * Memory constructor
- * @param rows - The amount of rows
- * @param cols - The amount of columns
  * @param ele - Current element
  * @constructor
  */
-var Memory = function(rows, cols, ele) {
-    this.rows = rows;
-    this.cols = cols;
+var Memory = function(ele) {
+    this.rows = undefined;
+    this.cols = undefined;
     this.element = ele;
     this.arr = [];
     this.turn1 = "";
@@ -26,6 +24,20 @@ Memory.prototype.memory = function() {
     var memoryButton = this.element.querySelector(".startMemory");
     memoryButton.addEventListener("click", function(event) {
         event.preventDefault();
+        var memorySize = this.element.querySelector(".memorySize");
+        var chosenSize = memorySize.options[memorySize.selectedIndex].value;
+
+        if (chosenSize === "16") {
+            this.rows = 4;
+            this.cols = 4;
+        } else if (chosenSize === "8") {
+            this.rows = 2;
+            this.cols = 4;
+        } else {
+            this.rows = 2;
+            this.cols = 2;
+        }
+
         this.startGame();
     }.bind(this), false);
 };

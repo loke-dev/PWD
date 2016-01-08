@@ -60,7 +60,7 @@ Desktop.prototype.generate = function() {
         container.appendChild(temp);
         this.ele = document.getElementById(this.id);
         this.number += 1;
-        var game = new Memory(4, 4, this.ele);
+        var game = new Memory(this.ele);
         game.memory();
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
