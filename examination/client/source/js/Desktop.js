@@ -3,6 +3,7 @@
 var Window = require("./window");
 var Memory = require("./Memory");
 var TaskBar = require("./taskbar");
+var Settings = require("./Settings");
 
 var Desktop = function() {
     this.ele = undefined;
@@ -134,6 +135,8 @@ Desktop.prototype.generate = function() {
             var dragWindow = new Window(this.ele);
             dragWindow.newWindow();
             this.close(dragWindow);
+            var background = new Settings();
+            background.background();
         }
     }.bind(this), false);
 };

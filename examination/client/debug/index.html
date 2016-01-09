@@ -21,7 +21,7 @@
     <div class="window memory" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/brain.png" class="tileIcon"/>
+            <img src="image/brain.png" class="tileIcon iconMemory"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Memory - Linux edition</h1>
@@ -46,7 +46,7 @@
     <div class="window chat" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/chat2.png" class="tileIcon"/>
+            <img src="image/chat2.png" class="tileIcon chatIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Chat</h1>
@@ -63,7 +63,7 @@
     <div class="window guestbook" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/guestbook.png" class="tileIcon"/>
+            <img src="image/guestbook.png" class="tileIcon iconGuestbook"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Guestbook</h1>
@@ -99,13 +99,18 @@
     <div class="window settings" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/settings.png" class="tileIcon"/>
+            <img src="image/settings.png" class="tileIcon settingsIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Settings</h1>
         </nav>
         <div class="windowContainer">
-
+            <img src="image/background.jpg" class="background background1"/>
+            <img src="image/background1.jpg" class="background background2"/>
+            <img src="image/background2.jpg" class="background background3"/>
+            <img src="image/background3.jpg" class="background background4"/>
+            <img src="image/background4.jpg" class="background background5"/>
+            <img src="image/background5.jpg" class="background background6"/>
         </div>
     </div>
 </template>
@@ -174,12 +179,12 @@
                     <a href="#" id="chatButton"><img src="image/chat2.png"/></a>
                 </li>
                 <li>
-                    <span>Explorer</span>
-                    <a href="#" id="explorerButton"><img src="image/ie.png"/></a>
-                </li>
-                <li>
                     <span>Guestbook</span>
                     <a href="#" id="guestBookButton"><img src="image/guestbook.png"/></a>
+                </li>
+                <li>
+                    <span>Explorer</span>
+                    <a href="#" id="explorerButton"><img src="image/ie.png"/></a>
                 </li>
                 <li>
                     <span>Settings</span>

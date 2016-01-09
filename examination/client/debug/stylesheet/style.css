@@ -33,7 +33,13 @@ footer {
     margin-right:auto;
 }
 
-img {
+.background {
+    width: 182px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.memoryPic {
     width: 90px;
     height: 130px;
 }
@@ -65,7 +71,7 @@ img {
 
 .settings {
     width: 400px;
-    height: 300px;
+    height: 500px;
 }
 
 #disqus_thread {
@@ -147,19 +153,35 @@ img {
 .tileIcon {
     width: 18px;
     height: 18px;
-    margin-left: 85px;
     position: relative;
     bottom: 1px;
+}
+
+.iconMemory {
+    margin-left: 90px;
+}
+
+.iconGuestbook {
+    margin-left: 180px;
+}
+
+.settingsIcon {
+    margin-left: 140px;
+}
+
+.chatIcon {
+    margin-left: 150px;
 }
 
 h1 {
     font: normal normal 13px/20px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     text-align: center;
     position:relative;
-    z-index:2;
     top:-23px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
     color:#444;
+    width: 95%;
+    left: 20px;
 }
 
 h2 {
@@ -238,10 +260,6 @@ nav a.minimize {
 
 nav a.maximize {
     background: #96D16F;
-}
-
-nav a {
-    z-index: 5;
 }
 
 .button {
