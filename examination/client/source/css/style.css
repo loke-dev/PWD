@@ -391,7 +391,7 @@ nav a.maximize {
     bottom:0;
     left:0;
     right:0;
-    z-index:100;
+    z-index:10000;
     animation: fade 1s ease 1 forwards;
 }
 
@@ -403,7 +403,7 @@ nav a.maximize {
     left:0;
     bottom:0;
     right:0;
-    z-index:101;
+    z-index:10001;
     width:500px;
     height:200px;
     margin:auto;

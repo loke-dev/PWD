@@ -98,7 +98,6 @@ Window.prototype.genChat = function() {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
             this.setUsername();
-            this.setPlaceholder();
             this.chatFunc();
         }
     }.bind(this), false);
@@ -106,6 +105,7 @@ Window.prototype.genChat = function() {
 
 Window.prototype.chatFunc = function() {
     event.preventDefault();
+    this.saveUsername();
     var windowContainer = this.ele.querySelector(".windowContainer");
     var chatTemplate = document.querySelector("#chatWindow");
     var tempWindow = document.importNode(chatTemplate.content, true);
@@ -114,7 +114,6 @@ Window.prototype.chatFunc = function() {
     var MyChat = new Chat(this.username, this.ele);
     MyChat.server();
     this.ele.querySelector(".chatBox").focus();
-    this.saveUsername();
 };
 
 Window.prototype.setUsername = function() {
@@ -138,11 +137,13 @@ Window.prototype.saveUsername = function() {
     var username = this.ele.querySelector(".userName");
     if (username.value) {
         localStorage.setItem("username", JSON.stringify(username.value));
+        this.setPlaceholder();
     }
 };
 
 Window.prototype.setPlaceholder = function() {
-    this.ele.querySelector(".userName").placeholder = this.username;
+    document.querySelector(".userName").placeholder = this.username;
+    console.log(this.username);
 };
 
 Window.prototype.popupOpen = function() {

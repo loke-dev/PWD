@@ -11,6 +11,7 @@ var Desktop = function() {
     this.number = 0;
     this.username = undefined;
     this.sound = new Audio("http://5.101.100.107/bsod.wav");
+    this.index = 1;
 };
 
 Desktop.prototype.generate = function() {
@@ -66,6 +67,7 @@ Desktop.prototype.generate = function() {
         var dragWindow = new Window(this.ele);
         dragWindow.newWindow();
         this.close(dragWindow);
+        this.zIndex(dragWindow);
     }.bind(this), false);
 
     var dockChat = document.querySelector("#chatButton");
@@ -84,6 +86,7 @@ Desktop.prototype.generate = function() {
         dragWindow.newWindow();
         dragWindow.genChat();
         this.close(dragWindow);
+        this.zIndex(dragWindow);
     }.bind(this), false);
 
     var dockExplorer = document.querySelector("#explorerButton");
@@ -115,6 +118,7 @@ Desktop.prototype.generate = function() {
             var dragWindow = new Window(this.ele);
             dragWindow.newWindow();
             this.close(dragWindow);
+            this.zIndex(dragWindow);
         }
     }.bind(this), false);
 
@@ -135,6 +139,7 @@ Desktop.prototype.generate = function() {
             var dragWindow = new Window(this.ele);
             dragWindow.newWindow();
             this.close(dragWindow);
+            this.zIndex(dragWindow);
             var background = new Settings();
             background.background();
         }
@@ -147,6 +152,14 @@ Desktop.prototype.close = function(window) {
         event.preventDefault();
         window.closeCurrent();
     }, false);
+};
+
+Desktop.prototype.zIndex = function(window) {
+    window.ele.addEventListener("mousedown", function(event) {
+        event.preventDefault();
+        this.index = this.index + 1;
+        window.ele.style.zIndex = this.index;
+    }.bind(this), false);
 };
 
 module.exports = Desktop;
