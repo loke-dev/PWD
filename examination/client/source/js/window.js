@@ -10,6 +10,7 @@ var Chat = require("./Chat");
 var Window = function(ele) {
     this.ele = ele;
     this.username = undefined;
+    this.channel = undefined;
 };
 
 /**
@@ -106,6 +107,7 @@ Window.prototype.genChat = function() {
     var initChat = this.ele.querySelector(".button");
     initChat.addEventListener("click", function(event) {
         event.preventDefault();
+        this.setChannel();
         this.setUsername();
         this.setPlaceholder();
         this.chatFunc();
@@ -115,6 +117,7 @@ Window.prototype.genChat = function() {
     initChatEnter.addEventListener("keypress", function(e) {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
+            this.setChannel();
             this.setUsername();
             this.chatFunc();
         }
@@ -132,7 +135,7 @@ Window.prototype.chatFunc = function() {
     var tempWindow = document.importNode(chatTemplate.content, true);
     this.clearWindow(windowContainer);
     windowContainer.appendChild(tempWindow);
-    var MyChat = new Chat(this.username, this.ele);
+    var MyChat = new Chat(this.username, this.channel, this.ele);
     MyChat.server();
     this.ele.querySelector(".chatBox").focus();
 };
@@ -165,6 +168,16 @@ Window.prototype.saveUsername = function() {
     if (username.value) {
         localStorage.setItem("username", JSON.stringify(username.value));
         this.setPlaceholder();
+    }
+};
+
+/**
+ * If defined, use channel
+ */
+Window.prototype.setChannel = function() {
+    var channel = this.ele.querySelector(".channel");
+    if (channel.value) {
+        this.channel = channel.value;
     }
 };
 

@@ -568,7 +568,7 @@ input.s3-btn{
     width: 320px;
     border-radius: 3px;
     text-indent: 3px;
-
+    margin-top: 8px;
 }
 
 .chatBox:focus {

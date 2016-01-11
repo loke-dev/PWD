@@ -3,14 +3,15 @@
 /**
  *
  * @param username - Set by the user
+ * @param channel - optional channel name
  * @param element - The current opened window
  * @constructor
  */
-var Chat = function(username, element) {
+var Chat = function(username, channel, element) {
     this.chatBox = "";
     this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
     this.username = username || "Loke";
-    this.channel = "";
+    this.channel = channel || "";
     this.key = "eDBE76deU7L0H9mEBgxUKVR0VCnq0XBd";
     this.data = {};
     this.message = undefined;
@@ -69,6 +70,7 @@ Chat.prototype.send = function() {
         channel: this.channel,
         key: this.key
     };
+    console.log(this.data);
     this.socket.send(JSON.stringify(this.data));
     this.chatBox.value = "";
     this.chatBox.focus();

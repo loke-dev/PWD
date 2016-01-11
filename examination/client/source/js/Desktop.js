@@ -112,7 +112,7 @@ Desktop.prototype.generate = function() {
         }, false);
     }.bind(this), false);
 
-    ////Eventlistener for the guestbook app on the dock bar
+    //Eventlistener for the guestbook app on the dock bar
     var guestbook = document.querySelector("#guestBookButton");
     guestbook.addEventListener("click", function(event) {
         event.preventDefault();
