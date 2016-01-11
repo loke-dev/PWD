@@ -1,5 +1,11 @@
 "use strict";
 
+/**
+ *
+ * @param username - Set by the user
+ * @param element - The current opened window
+ * @constructor
+ */
 var Chat = function(username, element) {
     this.chatBox = "";
     this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
@@ -13,7 +19,7 @@ var Chat = function(username, element) {
 };
 
 /**
- *
+ * Opens up communication to the server and listen if something is sent
  */
 Chat.prototype.server = function() {
 
@@ -51,6 +57,9 @@ Chat.prototype.server = function() {
     }.bind(this));
 };
 
+/**
+ * Send the text to the server
+ */
 Chat.prototype.send = function() {
     this.chatBox = this.element.querySelector(".chatBox");
     this.data = {

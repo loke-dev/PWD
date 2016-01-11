@@ -4,16 +4,24 @@ var Chat = require("./Chat");
 
 /**
  * Move function based of this source "http://codepen.io/thebabydino/pen/Afams".
+ * @param ele - The current window
+ * @constructor
  */
 var Window = function(ele) {
     this.ele = ele;
     this.username = undefined;
 };
 
+/**
+ * Close the window that close button has been pressed on
+ */
 Window.prototype.closeCurrent = function() {
     this.ele.remove();
 };
 
+/**
+ * Drag logic for the windows
+ */
 Window.prototype.newWindow = function() {
     var element = this.ele;
     var p1 = {
@@ -66,6 +74,9 @@ Window.prototype.newWindow = function() {
     }.bind(this), false);
 };
 
+/**
+ * Removes everything inside the container
+ */
 Window.prototype.clearAll = function() {
     var el = document.querySelector("#container");
     if (el) {
@@ -75,6 +86,10 @@ Window.prototype.clearAll = function() {
     }
 };
 
+/**
+ * Clear everything inside the element that is passed to this function
+ * @param element - Current element
+ */
 Window.prototype.clearWindow = function(element) {
     var el = element;
     if (el) {
@@ -84,6 +99,9 @@ Window.prototype.clearWindow = function(element) {
     }
 };
 
+/**
+ * Generates the chat window when user enters a nickname
+ */
 Window.prototype.genChat = function() {
     var initChat = this.ele.querySelector(".button");
     initChat.addEventListener("click", function(event) {
@@ -103,6 +121,9 @@ Window.prototype.genChat = function() {
     }.bind(this), false);
 };
 
+/**
+ * Generates the new chat window after user has set nickname
+ */
 Window.prototype.chatFunc = function() {
     event.preventDefault();
     this.saveUsername();
@@ -116,6 +137,9 @@ Window.prototype.chatFunc = function() {
     this.ele.querySelector(".chatBox").focus();
 };
 
+/**
+ * Handles how the username is set
+ */
 Window.prototype.setUsername = function() {
     var localUser;
     var username = this.ele.querySelector(".userName").value;
@@ -133,6 +157,9 @@ Window.prototype.setUsername = function() {
     }
 };
 
+/**
+ * Saves the username to localstorage
+ */
 Window.prototype.saveUsername = function() {
     var username = this.ele.querySelector(".userName");
     if (username.value) {
@@ -141,16 +168,25 @@ Window.prototype.saveUsername = function() {
     }
 };
 
+/**
+ * Sets the username to the placeholder
+ */
 Window.prototype.setPlaceholder = function() {
     document.querySelector(".userName").placeholder = this.username;
     console.log(this.username);
 };
 
+/**
+ * Displays the popup clear desktop
+ */
 Window.prototype.popupOpen = function() {
     document.querySelector("#popup").style.display = "block";
     document.querySelector("#overlay").style.display = "block";
 };
 
+/**
+ * Closes the popup clear desktop
+ */
 Window.prototype.popupClose = function() {
     document.querySelector("#popup").style.display = "none";
     document.querySelector("#overlay").style.display = "none";

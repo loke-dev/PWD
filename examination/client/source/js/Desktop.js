@@ -5,6 +5,10 @@ var Memory = require("./Memory");
 var TaskBar = require("./taskbar");
 var Settings = require("./Settings");
 
+/**
+ * Main desktop management for mostly eventlisteners
+ * @constructor
+ */
 var Desktop = function() {
     this.ele = undefined;
     this.id = undefined;
@@ -14,18 +18,23 @@ var Desktop = function() {
     this.index = 1;
 };
 
+/**
+ * Eventlisteners for the app icons on the dock bar
+ */
 Desktop.prototype.generate = function() {
     var Menu = new TaskBar();
     Menu.dockBar();
     var initWindow = new Window();
     initWindow.popupClose();
 
+    // Popup for the clear desktop app
     var dockClearAll = document.querySelector("#clearAllButton");
     dockClearAll.addEventListener("click", function(event) {
     event.preventDefault();
     var dragWindow = new Window();
     dragWindow.popupOpen();
 
+    // Close button
     var popupClose = document.querySelector(".s3-btn-close");
     popupClose.addEventListener("click", function(event) {
         event.preventDefault();
@@ -33,6 +42,7 @@ Desktop.prototype.generate = function() {
         dragWindow.popupClose();
     }, false);
 
+    //Cancel button
     var popupClose2 = document.querySelector(".cancelPopup");
     popupClose2.addEventListener("click", function(event) {
         event.preventDefault();
@@ -40,6 +50,7 @@ Desktop.prototype.generate = function() {
         dragWindow.popupClose();
     }, false);
 
+    // Confirm button
     var popupClear = document.querySelector(".confirmPopup");
     popupClear.addEventListener("click", function(event) {
         event.preventDefault();
@@ -50,8 +61,8 @@ Desktop.prototype.generate = function() {
 
 }, false);
 
+    //Eventlistener for the memory app on the dock bar
     var dockMemory = document.querySelector("#memoryButton");
-
     dockMemory.addEventListener("click", function(event) {
         event.preventDefault();
         var container = document.querySelector("#container");
@@ -70,8 +81,8 @@ Desktop.prototype.generate = function() {
         this.zIndex(dragWindow);
     }.bind(this), false);
 
+    //Eventlistener for the chat app on the dock bar
     var dockChat = document.querySelector("#chatButton");
-
     dockChat.addEventListener("click", function(event) {
         event.preventDefault();
         var container = document.querySelector("#container");
@@ -89,8 +100,8 @@ Desktop.prototype.generate = function() {
         this.zIndex(dragWindow);
     }.bind(this), false);
 
+    //Eventlistener for the explorer app on the dock bar
     var dockExplorer = document.querySelector("#explorerButton");
-
     dockExplorer.addEventListener("click", function(event) {
         event.preventDefault();
         this.sound.play();
@@ -101,8 +112,8 @@ Desktop.prototype.generate = function() {
         }, false);
     }.bind(this), false);
 
+    ////Eventlistener for the guestbook app on the dock bar
     var guestbook = document.querySelector("#guestBookButton");
-
     guestbook.addEventListener("click", function(event) {
         event.preventDefault();
         var clickOnce = document.querySelector(".guestbook");
@@ -122,8 +133,8 @@ Desktop.prototype.generate = function() {
         }
     }.bind(this), false);
 
+    //Eventlistener for the settings app on the dock bar
     var settings = document.querySelector("#settingsButton");
-
     settings.addEventListener("click", function(event) {
         event.preventDefault();
         var clickOnce = document.querySelector(".settings");
@@ -146,6 +157,10 @@ Desktop.prototype.generate = function() {
     }.bind(this), false);
 };
 
+/**
+ * Close function for the current window
+ * @param window - The current app window
+ */
 Desktop.prototype.close = function(window) {
     var close = this.ele.querySelector(".close");
     close.addEventListener("click", function(event) {
@@ -154,8 +169,11 @@ Desktop.prototype.close = function(window) {
     }, false);
 };
 
+/**
+ * When a window is clicked it gets the highest z-index
+ * @param window - The current app window
+ */
 Desktop.prototype.zIndex = function(window) {
-    console.log(window.ele.querySelector("nav"));
     window.ele.querySelector("nav").addEventListener("mousedown", function(event) {
         event.preventDefault();
         this.index = this.index + 1;

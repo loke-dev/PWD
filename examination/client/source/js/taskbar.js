@@ -4,7 +4,7 @@ var TaskBar = function() {
 };
 
 /**
- * Handles the dockbar
+ * Handles the dockbar hover effect
  */
 TaskBar.prototype.dockBar = function() {
     function addPrevClass(e) {

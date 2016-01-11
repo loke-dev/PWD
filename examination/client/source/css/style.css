@@ -78,6 +78,7 @@ footer {
     overflow-x: inherit;
     overflow-y: scroll;
     height: 555px;
+    padding-right: 15px;
 }
 
 .memoryPic {

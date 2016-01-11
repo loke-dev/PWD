@@ -6,5 +6,4 @@ desktop.generate();
 
 /*
 TODO: 3'rd app: Notepad?
-TODO: Settings app
  */
