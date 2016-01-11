@@ -155,7 +155,8 @@ Desktop.prototype.close = function(window) {
 };
 
 Desktop.prototype.zIndex = function(window) {
-    window.ele.addEventListener("mousedown", function(event) {
+    console.log(window.ele.querySelector("nav"));
+    window.ele.querySelector("nav").addEventListener("mousedown", function(event) {
         event.preventDefault();
         this.index = this.index + 1;
         window.ele.style.zIndex = this.index;
