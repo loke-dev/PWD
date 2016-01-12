@@ -24,6 +24,14 @@ var Chat = function(username, channel, element) {
  */
 Chat.prototype.server = function() {
 
+    if (this.channel === undefined || this.channel === "") {
+        var channelNameEmpty = document.createTextNode(" (no channel)");
+        this.element.querySelector("h1").appendChild(channelNameEmpty);
+    } else {
+        var channelName = document.createTextNode(" (" + this.channel + ")");
+        this.element.querySelector("h1").appendChild(channelName);
+    }
+
     //EventListener for when communication is open
     this.socket.addEventListener("open", function() {
         var sendChat = this.element.querySelector(".sendChat");
@@ -43,18 +51,14 @@ Chat.prototype.server = function() {
 
     this.socket.addEventListener("message", function(event) {
         this.message = JSON.parse(event.data);
+        console.log(this.message.channel);
         if (this.message.data !== "") {
-            console.log(this.message.username + ": " + this.message.data);
-            var li = document.createElement("li");
-            li.appendChild(document.createTextNode(this.message.username + ": " + this.message.data));
-            this.textArea = this.element.querySelector(".textArea");
-            this.textArea.appendChild(li);
-
-            //Scrolls down when new message is arrived
-            var chatEl = this.element.querySelector(".textContainer");
-            chatEl.scrollTop = chatEl.scrollHeight;
+            if (this.channel === this.message.channel) {
+                this.print();
+            } else if (this.channel === undefined || this.channel === "") {
+                this.print();
+            }
         }
-
     }.bind(this));
 };
 
@@ -74,6 +78,21 @@ Chat.prototype.send = function() {
     this.socket.send(JSON.stringify(this.data));
     this.chatBox.value = "";
     this.chatBox.focus();
+};
+
+/**
+ * Print the text recieved from the server
+ */
+Chat.prototype.print = function() {
+    console.log(this.message.username + ": " + this.message.data);
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(this.message.username + ": " + this.message.data));
+    this.textArea = this.element.querySelector(".textArea");
+    this.textArea.appendChild(li);
+
+    //Scrolls down when new message is arrived
+    var chatEl = this.element.querySelector(".textContainer");
+    chatEl.scrollTop = chatEl.scrollHeight;
 };
 
 module.exports = Chat;

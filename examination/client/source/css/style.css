@@ -171,7 +171,7 @@ footer {
 }
 
 .chatIcon {
-    margin-left: 150px;
+    margin-left: 100px;
 }
 
 h1 {
@@ -266,18 +266,18 @@ nav a.maximize {
 .button {
     font: normal normal 13px/20px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     height: 21px;
-    width:79px;
-    background:-webkit-linear-gradient(white 2px,#FCFCFC, #F3F3F3 11px, #ECECEC 4px, #FCFCFC 54px);
-    display:block;
-    float:right;
-    margin-top:5px;
+    width: 79px;
+    background: -webkit-linear-gradient(white 2px,#FCFCFC, #F3F3F3 11px, #ECECEC 4px, #FCFCFC 54px);
+    display: block;
+    float: right;
+    margin-top: -12px;
     margin-right: 75px;
     cursor: pointer;
     text-align: center;
-    border-radius:4px;
-    box-shadow:inset 0 0 0 1px #909090, 0 1px 0 0 #DFDFDF;
-    color:#000;
-    text-decoration:none;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #909090, 0 1px 0 0 #DFDFDF;
+    color: #000;
+    text-decoration: none;
 }
 
 .userName {
@@ -573,6 +573,12 @@ input.s3-btn{
 
 .chatBox:focus {
     outline: 0;
+}
+
+.channel {
+    margin-left: 60px;
+    width: 140px;
+
 }
 
 /* Memory altervative sizes */

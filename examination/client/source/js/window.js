@@ -122,6 +122,16 @@ Window.prototype.genChat = function() {
             this.chatFunc();
         }
     }.bind(this), false);
+
+    var initChatEnterNick = this.ele.querySelector(".channel");
+    initChatEnterNick.addEventListener("keypress", function(e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            this.setChannel();
+            this.setUsername();
+            this.chatFunc();
+        }
+    }.bind(this), false);
 };
 
 /**
