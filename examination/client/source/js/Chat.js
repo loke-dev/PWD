@@ -51,7 +51,6 @@ Chat.prototype.server = function() {
 
     this.socket.addEventListener("message", function(event) {
         this.message = JSON.parse(event.data);
-        console.log(this.message.channel);
         if (this.message.data !== "") {
             if (this.channel === this.message.channel) {
                 this.print();
@@ -74,7 +73,6 @@ Chat.prototype.send = function() {
         channel: this.channel,
         key: this.key
     };
-    console.log(this.data);
     this.socket.send(JSON.stringify(this.data));
     this.chatBox.value = "";
     this.chatBox.focus();

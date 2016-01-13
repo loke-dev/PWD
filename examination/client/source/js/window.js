@@ -163,10 +163,8 @@ Window.prototype.setUsername = function() {
 
     if (username) {
         this.username = username;
-        console.log("using text field");
     } else {
         this.username = localUser || "Loke";
-        console.log("using local storage or default");
     }
 };
 
@@ -196,7 +194,6 @@ Window.prototype.setChannel = function() {
  */
 Window.prototype.setPlaceholder = function() {
     document.querySelector(".userName").placeholder = this.username;
-    console.log(this.username);
 };
 
 /**
