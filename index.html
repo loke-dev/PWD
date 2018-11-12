@@ -1,19 +1,19 @@
 <!doctype html>
 
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="utf-8">
-    <title>Desktop</title>
-    <link rel="stylesheet" href="stylesheet/style.css">
+    <title>PWD</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <template id="memoryTemplate">
-    <a href="#" class="memory"><img src="image/0.png" alt="A memory brick" class="memoryPic" draggable="false"></a>
+    <a href="#" class="memory"><img src="images/0.png" alt="A memory brick" class="memoryPic" draggable="false"></a>
 </template>
 <template id="memoryWin">
-    <img src="image/win.png" alt="You won!" class="memoryWin">
+    <img src="images/win.png" alt="You won!" class="memoryWin">
     <p class="memoryWinTries"></p>
 </template>
 
@@ -21,7 +21,7 @@
     <div class="window memory" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/brain.png" class="tileIcon iconMemory"/>
+            <img src="images/brain.png" class="tileIcon iconMemory"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Memory - Linux edition</h1>
@@ -46,7 +46,7 @@
     <div class="window chat" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/chat2.png" class="tileIcon chatIcon"/>
+            <img src="images/chat.png" class="tileIcon chatIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Chat</h1>
@@ -64,7 +64,7 @@
     <div class="window guestbook" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/guestbook.png" class="tileIcon iconGuestbook"/>
+            <img src="images/guestbook.png" class="tileIcon iconGuestbook"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Guestbook</h1>
@@ -100,18 +100,18 @@
     <div class="window settings" data-x="0" data-y="0">
         <nav>
             <a href="#" class="close"></a>
-            <img src="image/settings.png" class="tileIcon settingsIcon"/>
+            <img src="images/settings.png" class="tileIcon settingsIcon"/>
             <!--<a href="#" class="minimize"></a>-->
             <!--<a href="#" class="maximize"></a>-->
             <h1>Settings</h1>
         </nav>
         <div class="windowContainer">
-            <img src="image/background.jpg" class="background background1"/>
-            <img src="image/background1.jpg" class="background background2"/>
-            <img src="image/background2.jpg" class="background background3"/>
-            <img src="image/background3.jpg" class="background background4"/>
-            <img src="image/background4.jpg" class="background background5"/>
-            <img src="image/background5.jpg" class="background background6"/>
+            <img src="images/background.jpg" class="background background1"/>
+            <img src="images/background1.jpg" class="background background2"/>
+            <img src="images/background2.jpg" class="background background3"/>
+            <img src="images/background3.jpg" class="background background4"/>
+            <img src="images/background4.jpg" class="background background5"/>
+            <img src="images/background5.jpg" class="background background6"/>
         </div>
     </div>
 </template>
@@ -124,7 +124,7 @@
         </div>
         <input title="Chat" type="text" class="chatBox textField" name="chatBox" autofocus>
         <button class="sendChat">
-            <img src="image/send.png" alt="submit" class="sendPic"/>
+            <img src="images/send.png" alt="submit" class="sendPic"/>
         </button>
     </div>
 </template>
@@ -173,34 +173,34 @@
             <ul>
                 <li>
                     <span>Memory</span>
-                    <a href="#" id="memoryButton"><img src="image/brain.png"/></a>
+                    <a href="#" id="memoryButton"><img src="images/brain.png"/></a>
                 </li>
                 <li>
                     <span>Chat</span>
-                    <a href="#" id="chatButton"><img src="image/chat2.png"/></a>
+                    <a href="#" id="chatButton"><img src="images/chat.png"/></a>
                 </li>
                 <li>
                     <span>Guestbook</span>
-                    <a href="#" id="guestBookButton"><img src="image/guestbook.png"/></a>
+                    <a href="#" id="guestBookButton"><img src="images/guestbook.png"/></a>
                 </li>
                 <li>
                     <span>Explorer</span>
-                    <a href="#" id="explorerButton"><img src="image/ie.png"/></a>
+                    <a href="#" id="explorerButton"><img src="images/ie.png"/></a>
                 </li>
                 <li>
                     <span>Settings</span>
-                    <a href="#" id="settingsButton"><img src="image/settings.png"/></a>
+                    <a href="#" id="settingsButton"><img src="images/settings.png"/></a>
                 </li>
                 <li>
                     <span>Clear Desktop</span>
-                    <a href="#" id="clearAllButton"><img src="image/trash.png"/></a>
+                    <a href="#" id="clearAllButton"><img src="images/trash.png"/></a>
                 </li>
             </ul>
             <div class="base"></div>
         </div>
     </div>
 </footer>
-<script src="javascript/build.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
 
