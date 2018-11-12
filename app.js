@@ -10,7 +10,7 @@
  */
 var Chat = function(username, channel, element) {
     this.chatBox = "";
-    this.socket = new WebSocket("ws://vhost3.lnu.se:20080/socket/");
+    this.socket = new WebSocket("wss://vhost3.lnu.se:20080/socket/");
     this.username = username || "Loke";
     this.channel = channel || "";
     this.key = "eDBE76deU7L0H9mEBgxUKVR0VCnq0XBd";
